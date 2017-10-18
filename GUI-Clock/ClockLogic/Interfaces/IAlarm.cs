@@ -8,7 +8,7 @@ namespace ClockLogic
 {
     interface IAlarm
     {
-        bool CheckAlarm();
-        void SetAlarm(int hour, int minute);
+        bool CheckAlarm(int hour, int minute);
+        bool SetAlarm(int hour, int minute);
     }
 }
