@@ -10,7 +10,7 @@ namespace ClockLogic
     {
         public int GetHours()
         {
-
+            //hej
         }
 
         public int GetMinutes()
