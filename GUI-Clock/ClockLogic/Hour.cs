@@ -8,5 +8,12 @@ namespace ClockLogic
 {
     class Hour : IHour
     {
+        public int HourValue {get; set; }
+
+        void Tick()
+        {
+
+        }
     }
 }
+

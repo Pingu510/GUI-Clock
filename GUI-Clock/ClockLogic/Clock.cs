@@ -8,6 +8,8 @@ namespace ClockLogic
 
 {    class Clock : IClock
     {
+
+
     }
     
 }

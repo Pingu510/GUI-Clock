@@ -8,7 +8,7 @@ namespace ClockLogic
 {
     interface IMinute
     {
-        int minuteValue { get; set; }
+        int MinuteValue { get; set; }
 
         void Tick();
     }
