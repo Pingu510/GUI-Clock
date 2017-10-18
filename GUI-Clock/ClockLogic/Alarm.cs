@@ -8,8 +8,30 @@ namespace ClockLogic
 {
     class Alarm : IAlarm
     {
-        private int _hour { get; set; }
-        private int _minute { get; set; }
+        private int _hour
+        {
+            get { return _hour; }
+            set
+            {
+                if (value < 0 || value > 23)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                _hour = value;
+            }
+        }
+
+        private int _minute {
+            get { return _minute; }
+            set
+            {
+                if (value < 0 || value > 59)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                _minute = value;
+            }
+        }
 
         /// <summary>
         /// Checks if sent in values are equal to set values returns bool 
@@ -24,17 +46,12 @@ namespace ClockLogic
         }
 
         /// <summary>
-        /// Sets alarm if in correct timeformat returns true, othervise false 
+        /// Sets alarm, values are restricted to correct timeformat
         /// </summary>
-        public bool SetAlarm(int hour, int minute)
+        public void SetAlarm(int hour, int minute)
         {
-            if ((hour >= 0 && hour < 24) && (minute >= 0 && minute < 60))
-            {
-                _hour = hour;
-                _minute = minute;
-                return true;
-            }
-            return false;
+            _hour = hour;
+            _minute = minute; 
         }
     }
 }

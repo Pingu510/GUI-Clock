@@ -12,12 +12,31 @@ namespace ClockLogic
     {
         Timer t = new Timer();
        
-        
-        public int MinuteValue { get; set; }
-
-        public void Tick()
+        /// <summary>
+        /// Current Minute, restricted to correct timeformat.
+        /// </summary>
+        public int MinuteValue
         {
-            if()
+            get { return MinuteValue; }
+            set
+            {
+                if (value < 0 || value > 59)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                MinuteValue = value;
+            }
+        }
+
+        /// <summary>
+        /// Adds time, parameter is bool: start or stop.
+        /// </summary>
+        public void Tick(bool runstate)
+        {
+            if (true)
+            {
+
+            }
 
         }
     }

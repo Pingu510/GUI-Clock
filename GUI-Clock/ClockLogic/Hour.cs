@@ -8,9 +8,26 @@ namespace ClockLogic
 {
     class Hour : IHour
     {
-        public int HourValue {get; set; }
+        /// <summary>
+        /// Current Hour, restricted to correct timeformat
+        /// </summary>
+        public int HourValue
+        {
+            get { return HourValue; }
+            set
+            {
+                if (value < 0 || value >= 24)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                HourValue = value;
+            }
+        }
 
-        void Tick()
+        /// <summary>
+        /// Adds time, parameter is bool: start or stop.
+        /// </summary>
+        public void Tick(bool runstate)
         {
 
         }
