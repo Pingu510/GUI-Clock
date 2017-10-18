@@ -8,6 +8,29 @@ namespace ClockLogic
 
 {    class Clock : IClock
     {
+        public int GetHours()
+        {
+
+        }
+
+        public int GetMinutes()
+        {
+
+        }
+
+        public void SetTime(int hour, int minute)
+        {
+
+        }
+
+        public void StartClock()
+        {
+
+        }
+
+        public void StopClock()
+        {
+
+        }
     }
-    
 }
