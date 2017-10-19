@@ -50,5 +50,11 @@
     <Compile Include="Minute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GUI-Clock\GUI-Clock.csproj">
+      <Project>{25d81d62-5772-4293-b719-c3085cf9600f}</Project>
+      <Name>GUI-Clock</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

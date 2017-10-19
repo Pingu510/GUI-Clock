@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GUI_Clock;
+
 
 namespace ClockLogic
 
@@ -10,6 +12,8 @@ namespace ClockLogic
     {
         private Hour _currentHour = new Hour();
         private Minute _currentMinute = new Minute();
+        private Alarm _alarm1 = new Alarm();
+        private Alarm _alarm2 = new Alarm();
 
         /// <summary>
         /// Returns current hour.
@@ -35,6 +39,16 @@ namespace ClockLogic
         {
             _currentHour.HourValue = hour;
             _currentMinute.MinuteValue = minute;
+        }
+
+        public void IsAlarmTime()
+        {
+            bool isAlarmOn1 =_alarm1.CheckAlarm(GetHours(), GetMinutes());
+            bool isAlarmOn2 =_alarm2.CheckAlarm(GetHours(), GetMinutes());
+            if (isAlarmOn1 || isAlarmOn2)
+            {
+
+            }
         }
 
         /// <summary>

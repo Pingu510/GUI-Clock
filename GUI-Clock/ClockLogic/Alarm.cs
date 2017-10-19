@@ -38,7 +38,7 @@ namespace ClockLogic
         /// </summary>
         public bool CheckAlarm(int hour, int minute)
         {
-            if (_hour == hour && _minute == minute)
+            if (this._hour == hour && this._minute == minute)
             {
                 return true;
             }
