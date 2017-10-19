@@ -63,6 +63,7 @@
             this.Clock.Size = new System.Drawing.Size(145, 55);
             this.Clock.TabIndex = 0;
             this.Clock.Text = "00:00";
+            this.Clock.Click += new System.EventHandler(this.Clock_Click);
             // 
             // Start_Button
             // 
@@ -128,6 +129,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Set";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label6
             // 
