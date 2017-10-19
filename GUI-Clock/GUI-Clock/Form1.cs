@@ -14,24 +14,43 @@ namespace GUI_Clock
 {
     public partial class Form1 : Form
     {
-        ProgramLogic programLogic = new ProgramLogic();
+        public Clock clock;
+
 
         public Form1()
         {
             InitializeComponent();
+
+            Thread t = new Thread(new ThreadStart(TickingClock));
+            t.Start();
         }
-        
-        private void SoundTheAlarm()
+
+        public void TickingClock()
         {
-            if (programLogic.TimeForSetOffAlarm())
-            {
-                //Färgsprakande grejs
-            }
+            clock = new Clock();
         }
 
         private void Start_Button_Click(object sender, EventArgs e)
         {
+            AlarmTabPage2.BackColor = Color.DeepPink;
+            Blink();
             
+        }
+
+        private async void Blink()
+        {
+            while(true)
+            {
+                await Task.Delay(1000);
+                AlarmTabPage2.BackColor = AlarmTabPage2.BackColor == Color.DeepPink ? Color.White : Color.Red;
+            }
+        }
+
+        private void AlarmTabPage2_Click(object sender, EventArgs e)
+        {
+            AlarmTabPage2.BackColor = Color.DarkSalmon;
+
+                
         }
     }
 }
