@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace ClockLogic
 {
     class Hour : IHour
     {
+        private static Timer timer;
+
         /// <summary>
         /// Current Hour, restricted to correct timeformat
         /// </summary>
@@ -29,7 +32,7 @@ namespace ClockLogic
         /// </summary>
         public void Tick(bool runstate)
         {
-
+            timer = new Timer(1000);
         }
     }
 }
