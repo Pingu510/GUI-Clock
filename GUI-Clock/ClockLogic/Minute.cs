@@ -31,18 +31,9 @@ namespace ClockLogic
         /// <summary>
         /// Adds time, parameter is bool: start or stop.
         /// </summary>
-        public void Tick(bool runstate)
+        public void Tick()
         {
-            if (true)
-            {
-
-            }
-
+            MinuteValue += 1;
         }
-
-        
-         
-        
-
     }
 }

@@ -10,6 +10,6 @@ namespace ClockLogic
     {
         int HourValue { get; set; }
 
-        void Tick(bool runstate);
+        void Tick();
     }
 }

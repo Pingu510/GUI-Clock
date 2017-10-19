@@ -4,16 +4,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GUI_Clock;
-
+using System.Timers;
 
 namespace ClockLogic
 
 {    class Clock : IClock
     {
+        Timer timer;
         private Hour _currentHour = new Hour();
         private Minute _currentMinute = new Minute();
         private Alarm _alarm1 = new Alarm();
         private Alarm _alarm2 = new Alarm();
+
+        public Clock()
+        {
+            timer = new Timer();
+            timer.Interval = 1000;
+            timer.Elapsed += Timer_Elapsed;
+
+        }
+
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            if (_currentMinute.MinuteValue == 59)
+            {
+                if (_currentHour.HourValue == 23)
+                    _currentHour.HourValue = 0;
+                else
+                    _currentHour.Tick();
+            }
+            else
+            {
+                _currentMinute.Tick();
+            }
+            
+        }
 
         /// <summary>
         /// Returns current hour.
@@ -56,8 +81,7 @@ namespace ClockLogic
         /// </summary>
         public void StartClock()
         {
-            _currentHour.Tick(true);
-            _currentMinute.Tick(true);
+            timer.Start();
         }
 
         /// <summary>
@@ -65,8 +89,7 @@ namespace ClockLogic
         /// </summary>
         public void StopClock()
         {
-            _currentHour.Tick(false);
-            _currentMinute.Tick(false);
+            timer.Stop();
         }
     }    
 }

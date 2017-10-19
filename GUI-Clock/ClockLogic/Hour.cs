@@ -30,9 +30,10 @@ namespace ClockLogic
         /// <summary>
         /// Adds time, parameter is bool: start or stop.
         /// </summary>
-        public void Tick(bool runstate)
+        /// 
+        public void Tick()
         {
-            timer = new Timer(1000);
+            HourValue += 1;
         }
     }
 }
