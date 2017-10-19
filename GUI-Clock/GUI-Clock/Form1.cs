@@ -28,15 +28,7 @@ namespace GUI_Clock
        
         public void Update_Clock_Form()
         {
-            programLogic.TickingClock();
-            string currenttime;
-            string strhours = programLogic.clock.GetHours().ToString();
-            if(strhours.Length > 1)
-            {
-                 currenttime = "0" + strhours;
-            }
-            string strminutes = programLogic.clock.GetMinutes().ToString();
-            Clock_Form.Text = "00:00";
+            Clock_Form.Text = programLogic.CreateTimeString();
         }
 
         private void Start_Button_Click(object sender, EventArgs e)

@@ -16,7 +16,6 @@ namespace GUI_Clock
 
         public ProgramLogic()
         {
-            
             Thread ThreadAlarmTime = new Thread(new ThreadStart(TimeForSetOffAlarm));
             ThreadAlarmTime.Start();
         }
@@ -24,6 +23,26 @@ namespace GUI_Clock
         public void TickingClock()
         {
             clock.ClockFunction();
+        }
+
+        public string CreateTimeString()
+        {
+            string currenttime;
+            string strhours = clock.GetHours().ToString();
+            string strminutes = clock.GetMinutes().ToString();
+
+            if (strhours.Length > 1)
+            {
+                strhours = "0" + strhours;
+            }
+
+            if(clock.GetMinutes().ToString().Length > 1)
+            {
+                strminutes = "0" + strminutes;
+            }
+
+            currenttime = strhours + ":" + strminutes;
+            return currenttime;
         }
 
         public bool TimeForSetOffAlarm()
