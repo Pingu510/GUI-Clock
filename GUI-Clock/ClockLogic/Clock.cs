@@ -7,7 +7,7 @@ using System.Timers;
 
 namespace ClockLogic
 
-{    class Clock : IClock
+{    public class Clock : IClock
     {
         Timer timer;
         private Hour _currentHour = new Hour();
