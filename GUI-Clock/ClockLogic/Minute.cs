@@ -8,23 +8,24 @@ using System.Windows;
 
 namespace ClockLogic
 {
-    class Minute : IMinute
+    public class Minute : IMinute
     {
         Timer t = new Timer();
-       
+
+        private int _MinuteValue;
         /// <summary>
         /// Current Minute, restricted to correct timeformat.
         /// </summary>
         public int MinuteValue
         {
-            get { return MinuteValue; }
+            get { return _MinuteValue; }
             set
             {
                 if (value < 0 || value > 59)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
-                MinuteValue = value;
+                _MinuteValue = value;
             }
         }
 

@@ -43,7 +43,9 @@ namespace GUI_Clock
         {
             AlarmTabPage2.BackColor = Color.DeepPink;
             Blink();
-            
+            //clock.StartClock();
+
+
         }
 
         private async void Blink()
@@ -60,6 +62,16 @@ namespace GUI_Clock
             AlarmTabPage2.BackColor = Color.DarkSalmon;
 
                 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Clock_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

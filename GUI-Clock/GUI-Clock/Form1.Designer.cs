@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Clock_Form = new System.Windows.Forms.Label();
+            this.Clock = new System.Windows.Forms.Label();
             this.Start_Button = new System.Windows.Forms.Button();
             this.Sethour = new System.Windows.Forms.Label();
             this.Setminutes = new System.Windows.Forms.Label();
@@ -46,6 +46,12 @@
             this.AlarmClockTab2 = new System.Windows.Forms.Label();
             this.SetMinuteTab2 = new System.Windows.Forms.Label();
             this.SetHoursTabPage2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.clockbox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.AlarmTabBox.SuspendLayout();
@@ -54,15 +60,16 @@
             this.AlarmBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // Clock_Form
+            // Clock
             // 
-            this.Clock_Form.AutoSize = true;
-            this.Clock_Form.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Clock_Form.Location = new System.Drawing.Point(86, 74);
-            this.Clock_Form.Name = "Clock_Form";
-            this.Clock_Form.Size = new System.Drawing.Size(145, 55);
-            this.Clock_Form.TabIndex = 0;
-            this.Clock_Form.Text = "00:00";
+            this.Clock.AutoSize = true;
+            this.Clock.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Clock.Location = new System.Drawing.Point(86, 74);
+            this.Clock.Name = "Clock";
+            this.Clock.Size = new System.Drawing.Size(145, 55);
+            this.Clock.TabIndex = 0;
+            this.Clock.Text = "00:00";
+            this.Clock.Click += new System.EventHandler(this.Clock_Click);
             // 
             // Start_Button
             // 
@@ -96,7 +103,9 @@
             // 
             // clockbox
             // 
-            this.clockbox.Controls.Add(this.Clock_Form);
+            this.clockbox.Controls.Add(this.textBox2);
+            this.clockbox.Controls.Add(this.textBox1);
+            this.clockbox.Controls.Add(this.Clock);
             this.clockbox.Controls.Add(this.Start_Button);
             this.clockbox.Controls.Add(this.Sethour);
             this.clockbox.Controls.Add(this.Setminutes);
@@ -109,6 +118,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.textBox3);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
@@ -128,6 +139,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Set";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label6
             // 
@@ -142,20 +154,20 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(31, 65);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(28, 65);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 18);
+            this.label5.Size = new System.Drawing.Size(75, 15);
             this.label5.TabIndex = 1;
             this.label5.Text = "Set minutes:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(28, 36);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 18);
+            this.label4.Size = new System.Drawing.Size(53, 15);
             this.label4.TabIndex = 0;
             this.label4.Text = "Set hour";
             // 
@@ -196,6 +208,8 @@
             // 
             // AlarmBox2
             // 
+            this.AlarmBox2.Controls.Add(this.textBox6);
+            this.AlarmBox2.Controls.Add(this.textBox5);
             this.AlarmBox2.Controls.Add(this.SetButtomTab2);
             this.AlarmBox2.Controls.Add(this.AlarmClockTab2);
             this.AlarmBox2.Controls.Add(this.SetMinuteTab2);
@@ -245,6 +259,48 @@
             this.SetHoursTabPage2.TabIndex = 4;
             this.SetHoursTabPage2.Text = "Set hours:";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(108, 30);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 4;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(108, 54);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 5;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(128, 31);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 4;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(128, 65);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.TabIndex = 5;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(124, 37);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.TabIndex = 8;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(124, 58);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(100, 20);
+            this.textBox6.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -269,7 +325,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label Clock_Form;
+        private System.Windows.Forms.Label Clock;
         private System.Windows.Forms.Button Start_Button;
         private System.Windows.Forms.Label Sethour;
         private System.Windows.Forms.Label Setminutes;
@@ -287,6 +343,12 @@
         private System.Windows.Forms.Label AlarmClockTab2;
         private System.Windows.Forms.Label SetMinuteTab2;
         private System.Windows.Forms.Label SetHoursTabPage2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox5;
     }
 }
 

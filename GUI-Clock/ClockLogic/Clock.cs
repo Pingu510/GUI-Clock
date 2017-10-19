@@ -18,6 +18,7 @@ namespace ClockLogic
             timer = new Timer();
             timer.Interval = 1000;
             timer.Elapsed += Timer_Elapsed;
+            timer.Start();
 
         }
 
