@@ -16,5 +16,10 @@ namespace GUI_Clock
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
