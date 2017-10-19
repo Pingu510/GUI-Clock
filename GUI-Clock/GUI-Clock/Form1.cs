@@ -14,20 +14,29 @@ namespace GUI_Clock
 {
     public partial class Form1 : Form
     {
-        public Clock clock;
+        
+        ProgramLogic programLogic = new ProgramLogic();
 
 
         public Form1()
         {
             InitializeComponent();
+            Thread ThreadTime = new Thread(new ThreadStart(Update_Clock_Form));
+            ThreadTime.Start();
 
-            Thread t = new Thread(new ThreadStart(TickingClock));
-            t.Start();
         }
-
-        public void TickingClock()
+       
+        public void Update_Clock_Form()
         {
-            clock = new Clock();
+            programLogic.TickingClock();
+            string currenttime;
+            string strhours = programLogic.clock.GetHours().ToString();
+            if(strhours.Length > 1)
+            {
+                 currenttime = "0" + strhours;
+            }
+            string strminutes = programLogic.clock.GetMinutes().ToString();
+            Clock_Form.Text = "00:00";
         }
 
         private void Start_Button_Click(object sender, EventArgs e)
