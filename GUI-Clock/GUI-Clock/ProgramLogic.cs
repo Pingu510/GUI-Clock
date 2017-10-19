@@ -8,17 +8,17 @@ using ClockLogic;
 
 namespace GUI_Clock
 {
-    class ProgramLogic
+    public class ProgramLogic
     {
-        private Clock clock = new Clock();
+        public Clock clock = new Clock();
         private Alarm _alarm1 = new Alarm();
         private Alarm _alarm2 = new Alarm();
 
         public ProgramLogic()
         {
-            Thread ThreadTime = new Thread(new ThreadStart(TickingClock));
-            ThreadTime.Start();
-            Thread AlarmTime = new Thread(new ThreadStart(TimeForSetOffAlarm));
+            
+            Thread ThreadAlarmTime = new Thread(new ThreadStart(TimeForSetOffAlarm));
+            ThreadAlarmTime.Start();
         }
 
         public void TickingClock()

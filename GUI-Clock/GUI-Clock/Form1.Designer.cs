@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Clock = new System.Windows.Forms.Label();
+            this.Clock_Form = new System.Windows.Forms.Label();
             this.Start_Button = new System.Windows.Forms.Button();
             this.Sethour = new System.Windows.Forms.Label();
             this.Setminutes = new System.Windows.Forms.Label();
@@ -54,15 +54,15 @@
             this.AlarmBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // Clock
+            // Clock_Form
             // 
-            this.Clock.AutoSize = true;
-            this.Clock.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Clock.Location = new System.Drawing.Point(86, 74);
-            this.Clock.Name = "Clock";
-            this.Clock.Size = new System.Drawing.Size(145, 55);
-            this.Clock.TabIndex = 0;
-            this.Clock.Text = "00:00";
+            this.Clock_Form.AutoSize = true;
+            this.Clock_Form.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Clock_Form.Location = new System.Drawing.Point(86, 74);
+            this.Clock_Form.Name = "Clock_Form";
+            this.Clock_Form.Size = new System.Drawing.Size(145, 55);
+            this.Clock_Form.TabIndex = 0;
+            this.Clock_Form.Text = "00:00";
             // 
             // Start_Button
             // 
@@ -96,7 +96,7 @@
             // 
             // clockbox
             // 
-            this.clockbox.Controls.Add(this.Clock);
+            this.clockbox.Controls.Add(this.Clock_Form);
             this.clockbox.Controls.Add(this.Start_Button);
             this.clockbox.Controls.Add(this.Sethour);
             this.clockbox.Controls.Add(this.Setminutes);
@@ -269,7 +269,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label Clock;
+        private System.Windows.Forms.Label Clock_Form;
         private System.Windows.Forms.Button Start_Button;
         private System.Windows.Forms.Label Sethour;
         private System.Windows.Forms.Label Setminutes;
