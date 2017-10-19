@@ -52,5 +52,10 @@ namespace GUI_Clock
 
                 
         }
+
+        private void Clock_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
