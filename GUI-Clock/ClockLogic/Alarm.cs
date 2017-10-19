@@ -12,7 +12,7 @@ namespace ClockLogic
         {
             get { return _hour; }
             set
-            { // helloddkslkdlaskdalkdöaslkdölskölaskdowkdaldwkkfmelfmelmfmf
+            {
                 if (value < 0 || value > 23)
                 {
                     throw new ArgumentOutOfRangeException();
