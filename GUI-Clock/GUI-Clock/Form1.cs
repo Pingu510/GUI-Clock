@@ -14,24 +14,24 @@ namespace GUI_Clock
 {
     public partial class Form1 : Form
     {
-        public Clock clock;
-
+        ProgramLogic programLogic = new ProgramLogic();
 
         public Form1()
         {
             InitializeComponent();
-
-            Thread t = new Thread(new ThreadStart(TickingClock));
-            t.Start();
         }
-
-        public void TickingClock()
+        
+        private void SoundTheAlarm()
         {
-            clock = new Clock();
+            if (programLogic.TimeForSetOffAlarm())
+            {
+                //Färgsprakande grejs
+            }
         }
 
         private void Start_Button_Click(object sender, EventArgs e)
         {
+            
         }
     }
 }

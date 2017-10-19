@@ -6,30 +6,30 @@ using System.Threading.Tasks;
 
 namespace ClockLogic
 {
-    class Alarm : IAlarm
+    public class Alarm : IAlarm
     {
-        private int _hour
+        private int _alarmHour
         {
-            get { return _hour; }
+            get { return _alarmHour; }
             set
             {
                 if (value < 0 || value > 23)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
-                _hour = value;
+                _alarmHour = value;
             }
         }
 
-        private int _minute {
-            get { return _minute; }
+        private int _alarmMinute {
+            get { return _alarmMinute; }
             set
             {
                 if (value < 0 || value > 59)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
-                _minute = value;
+                _alarmMinute = value;
             }
         }
 
@@ -38,7 +38,7 @@ namespace ClockLogic
         /// </summary>
         public bool CheckAlarm(int hour, int minute)
         {
-            if (this._hour == hour && this._minute == minute)
+            if (this._alarmHour == hour && this._alarmMinute == minute)
             {
                 return true;
             }
@@ -50,8 +50,8 @@ namespace ClockLogic
         /// </summary>
         public void SetAlarm(int hour, int minute)
         {
-            _hour = hour;
-            _minute = minute; 
+            _alarmHour = hour;
+            _alarmMinute = minute; 
         }
     }
 }
