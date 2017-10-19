@@ -24,6 +24,7 @@ namespace ClockLogic
                 {
                     throw new ArgumentOutOfRangeException();
                 }
+               
                 _HourValue = value;
             }
         }
