@@ -78,5 +78,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClockLogic\ClockLogic.csproj">
+      <Project>{e613fcf0-45cb-4110-9ca7-ad62d0840fec}</Project>
+      <Name>ClockLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
