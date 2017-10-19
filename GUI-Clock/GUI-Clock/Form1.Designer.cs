@@ -42,10 +42,10 @@
             this.AlarmTabPage1 = new System.Windows.Forms.TabPage();
             this.AlarmTabPage2 = new System.Windows.Forms.TabPage();
             this.AlarmBox2 = new System.Windows.Forms.GroupBox();
-            this.SetHoursTabPage2 = new System.Windows.Forms.Label();
-            this.SetMinuteTab2 = new System.Windows.Forms.Label();
-            this.AlarmClockTab2 = new System.Windows.Forms.Label();
             this.SetButtomTab2 = new System.Windows.Forms.Button();
+            this.AlarmClockTab2 = new System.Windows.Forms.Label();
+            this.SetMinuteTab2 = new System.Windows.Forms.Label();
+            this.SetHoursTabPage2 = new System.Windows.Forms.Label();
             this.clockbox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.AlarmTabBox.SuspendLayout();
@@ -192,6 +192,7 @@
             this.AlarmTabPage2.TabIndex = 1;
             this.AlarmTabPage2.Text = "Alarm 2";
             this.AlarmTabPage2.UseVisualStyleBackColor = true;
+            this.AlarmTabPage2.Click += new System.EventHandler(this.AlarmTabPage2_Click);
             // 
             // AlarmBox2
             // 
@@ -205,25 +206,14 @@
             this.AlarmBox2.TabIndex = 1;
             this.AlarmBox2.TabStop = false;
             // 
-            // SetHoursTabPage2
+            // SetButtomTab2
             // 
-            this.SetHoursTabPage2.AutoSize = true;
-            this.SetHoursTabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SetHoursTabPage2.Location = new System.Drawing.Point(31, 39);
-            this.SetHoursTabPage2.Name = "SetHoursTabPage2";
-            this.SetHoursTabPage2.Size = new System.Drawing.Size(76, 18);
-            this.SetHoursTabPage2.TabIndex = 4;
-            this.SetHoursTabPage2.Text = "Set hours:";
-            // 
-            // SetMinuteTab2
-            // 
-            this.SetMinuteTab2.AutoSize = true;
-            this.SetMinuteTab2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SetMinuteTab2.Location = new System.Drawing.Point(31, 57);
-            this.SetMinuteTab2.Name = "SetMinuteTab2";
-            this.SetMinuteTab2.Size = new System.Drawing.Size(90, 18);
-            this.SetMinuteTab2.TabIndex = 5;
-            this.SetMinuteTab2.Text = "Set minutes:";
+            this.SetButtomTab2.Location = new System.Drawing.Point(74, 155);
+            this.SetButtomTab2.Name = "SetButtomTab2";
+            this.SetButtomTab2.Size = new System.Drawing.Size(75, 23);
+            this.SetButtomTab2.TabIndex = 7;
+            this.SetButtomTab2.Text = "Set";
+            this.SetButtomTab2.UseVisualStyleBackColor = true;
             // 
             // AlarmClockTab2
             // 
@@ -235,14 +225,25 @@
             this.AlarmClockTab2.TabIndex = 6;
             this.AlarmClockTab2.Text = "00:00";
             // 
-            // SetButtomTab2
+            // SetMinuteTab2
             // 
-            this.SetButtomTab2.Location = new System.Drawing.Point(74, 155);
-            this.SetButtomTab2.Name = "SetButtomTab2";
-            this.SetButtomTab2.Size = new System.Drawing.Size(75, 23);
-            this.SetButtomTab2.TabIndex = 7;
-            this.SetButtomTab2.Text = "Set";
-            this.SetButtomTab2.UseVisualStyleBackColor = true;
+            this.SetMinuteTab2.AutoSize = true;
+            this.SetMinuteTab2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SetMinuteTab2.Location = new System.Drawing.Point(31, 57);
+            this.SetMinuteTab2.Name = "SetMinuteTab2";
+            this.SetMinuteTab2.Size = new System.Drawing.Size(90, 18);
+            this.SetMinuteTab2.TabIndex = 5;
+            this.SetMinuteTab2.Text = "Set minutes:";
+            // 
+            // SetHoursTabPage2
+            // 
+            this.SetHoursTabPage2.AutoSize = true;
+            this.SetHoursTabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SetHoursTabPage2.Location = new System.Drawing.Point(31, 39);
+            this.SetHoursTabPage2.Name = "SetHoursTabPage2";
+            this.SetHoursTabPage2.Size = new System.Drawing.Size(76, 18);
+            this.SetHoursTabPage2.TabIndex = 4;
+            this.SetHoursTabPage2.Text = "Set hours:";
             // 
             // Form1
             // 

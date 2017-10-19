@@ -32,6 +32,25 @@ namespace GUI_Clock
 
         private void Start_Button_Click(object sender, EventArgs e)
         {
+            AlarmTabPage2.BackColor = Color.DeepPink;
+            Blink();
+            
+        }
+
+        private async void Blink()
+        {
+            while(true)
+            {
+                await Task.Delay(1000);
+                AlarmTabPage2.BackColor = AlarmTabPage2.BackColor == Color.DeepPink ? Color.White : Color.Red;
+            }
+        }
+
+        private void AlarmTabPage2_Click(object sender, EventArgs e)
+        {
+            AlarmTabPage2.BackColor = Color.DarkSalmon;
+
+                
         }
     }
 }
