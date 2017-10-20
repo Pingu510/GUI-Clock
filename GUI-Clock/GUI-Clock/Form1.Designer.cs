@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Clock_Form = new System.Windows.Forms.Label();
             this.Start_Button = new System.Windows.Forms.Button();
             this.Sethour = new System.Windows.Forms.Label();
@@ -38,7 +39,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.SetAlarm_Button = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -52,6 +53,9 @@
             this.AlarmClockTab2 = new System.Windows.Forms.Label();
             this.SetMinuteTab2 = new System.Windows.Forms.Label();
             this.SetHoursTabPage2 = new System.Windows.Forms.Label();
+            this.ClockBackgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.ClockTimer = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.clockbox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.AlarmTabBox.SuspendLayout();
@@ -69,7 +73,6 @@
             this.Clock_Form.Size = new System.Drawing.Size(145, 55);
             this.Clock_Form.TabIndex = 0;
             this.Clock_Form.Text = "00:00";
-            this.Clock_Form.Click += new System.EventHandler(this.Clock_Click);
             // 
             // Start_Button
             // 
@@ -134,7 +137,7 @@
             // 
             this.groupBox2.Controls.Add(this.textBox4);
             this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.SetAlarm_Button);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
@@ -159,15 +162,15 @@
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 4;
             // 
-            // button2
+            // SetAlarm_Button
             // 
-            this.button2.Location = new System.Drawing.Point(75, 171);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Set";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.SetAlarm_Button.Location = new System.Drawing.Point(75, 171);
+            this.SetAlarm_Button.Name = "SetAlarm_Button";
+            this.SetAlarm_Button.Size = new System.Drawing.Size(75, 23);
+            this.SetAlarm_Button.TabIndex = 3;
+            this.SetAlarm_Button.Text = "Set";
+            this.SetAlarm_Button.UseVisualStyleBackColor = true;
+            this.SetAlarm_Button.Click += new System.EventHandler(this.SetAlarm_Button_Click);
             // 
             // label6
             // 
@@ -232,7 +235,6 @@
             this.AlarmTabPage2.TabIndex = 1;
             this.AlarmTabPage2.Text = "Alarm 2";
             this.AlarmTabPage2.UseVisualStyleBackColor = true;
-            this.AlarmTabPage2.Click += new System.EventHandler(this.AlarmTabPage2_Click);
             // 
             // AlarmBox2
             // 
@@ -301,6 +303,18 @@
             this.SetHoursTabPage2.TabIndex = 4;
             this.SetHoursTabPage2.Text = "Set hours:";
             // 
+            // ClockBackgroundWorker
+            // 
+            this.ClockBackgroundWorker.WorkerReportsProgress = true;
+            this.ClockBackgroundWorker.WorkerSupportsCancellation = true;
+            this.ClockBackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.ClockBackgroundWorker_DoWork);
+            this.ClockBackgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.ClockBackgroundWorker_RunWorkerCompleted);
+            // 
+            // ClockTimer
+            // 
+            this.ClockTimer.Interval = 1000;
+            this.ClockTimer.Tick += new System.EventHandler(this.ClockTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -331,7 +345,7 @@
         private System.Windows.Forms.Label Setminutes;
         private System.Windows.Forms.GroupBox clockbox;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button SetAlarm_Button;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -349,6 +363,9 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
+        private System.ComponentModel.BackgroundWorker ClockBackgroundWorker;
+        private System.Windows.Forms.Timer ClockTimer;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

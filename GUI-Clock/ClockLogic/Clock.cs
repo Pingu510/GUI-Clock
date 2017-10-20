@@ -9,20 +9,23 @@ namespace ClockLogic
 
 {    public class Clock : IClock
     {
-        Timer timer;
+        //Timer timer;
         private Hour _currentHour = new Hour();
         private Minute _currentMinute = new Minute();
 
-        public void ClockFunction()
-        {
-            timer = new Timer();
-            timer.Interval = 1000;
-            timer.Elapsed += Timer_Elapsed;
-            timer.Start();
+        //public void ClockFunction()
+        //{
+        //    timer = new Timer();
+        //    timer.Interval = 1000;
+        //    timer.Elapsed += Timer_Elapsed;
+        //    timer.Start();
 
-        }
+        //}
 
-        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        /// <summary>
+        /// This is where the clock ticks
+        /// </summary>
+        public void Timer_Elapsed()//object sender, ElapsedEventArgs e)
         {
             if (_currentMinute.MinuteValue == 59)
             {
@@ -69,7 +72,7 @@ namespace ClockLogic
         /// </summary>
         public void StartClock()
         {
-            timer.Start();
+            //timer.Start();
         }
 
         /// <summary>
@@ -77,7 +80,7 @@ namespace ClockLogic
         /// </summary>
         public void StopClock()
         {
-            timer.Stop();
+            //timer.Stop();
         }
     }    
 }

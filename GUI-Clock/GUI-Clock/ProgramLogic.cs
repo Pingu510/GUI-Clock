@@ -16,27 +16,25 @@ namespace GUI_Clock
 
         public ProgramLogic()
         {
-            Thread ThreadAlarmTime = new Thread(new ThreadStart(TimeForSetOffAlarm));
-            ThreadAlarmTime.Start();
+            //Thread ThreadAlarmTime = new Thread(new ThreadStart(TimeForSetOffAlarm));
+            //ThreadAlarmTime.Start();
         }
-
-        public void TickingClock()
-        {
-            clock.ClockFunction();
-        }
-
+        
+        /// <summary>
+        /// Creates a correct format string for windows forms clock text.
+        /// </summary>
         public string CreateTimeString()
         {
             string currenttime;
             string strhours = clock.GetHours().ToString();
             string strminutes = clock.GetMinutes().ToString();
 
-            if (strhours.Length > 1)
+            if (strhours.Length < 2)
             {
                 strhours = "0" + strhours;
             }
 
-            if(clock.GetMinutes().ToString().Length > 1)
+            if(clock.GetMinutes().ToString().Length < 2)
             {
                 strminutes = "0" + strminutes;
             }
