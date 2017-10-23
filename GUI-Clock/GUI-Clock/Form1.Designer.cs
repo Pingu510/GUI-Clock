@@ -37,25 +37,24 @@
             this.clock_minuteTextbox = new System.Windows.Forms.TextBox();
             this.Clock_HourTextbox = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.SetAlarm_Button = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.Alarm1_Minute_Textbox = new System.Windows.Forms.TextBox();
+            this.Alarm1_Hour_Textbox = new System.Windows.Forms.TextBox();
+            this.Tab1_Set_Alarm1_Buttom = new System.Windows.Forms.Button();
+            this.Alarm_Clock1_Time = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.AlarmTabBox = new System.Windows.Forms.TabControl();
             this.AlarmTabPage1 = new System.Windows.Forms.TabPage();
             this.AlarmTabPage2 = new System.Windows.Forms.TabPage();
             this.AlarmBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.SetButtomTab2 = new System.Windows.Forms.Button();
-            this.AlarmClockTab2 = new System.Windows.Forms.Label();
+            this.Alarm2_Minute_Textbox = new System.Windows.Forms.TextBox();
+            this.Alarm2_Hour_Textbox = new System.Windows.Forms.TextBox();
+            this.Tab2_Set_Alarm2_Buttom = new System.Windows.Forms.Button();
+            this.Alarm_Clock2_Time = new System.Windows.Forms.Label();
             this.SetMinuteTab2 = new System.Windows.Forms.Label();
             this.SetHoursTabPage2 = new System.Windows.Forms.Label();
             this.ClockBackgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.ClockTimer = new System.Windows.Forms.Timer(this.components);
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.clockbox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.AlarmTabBox.SuspendLayout();
@@ -135,10 +134,10 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.SetAlarm_Button);
-            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.Alarm1_Minute_Textbox);
+            this.groupBox2.Controls.Add(this.Alarm1_Hour_Textbox);
+            this.groupBox2.Controls.Add(this.Tab1_Set_Alarm1_Buttom);
+            this.groupBox2.Controls.Add(this.Alarm_Clock1_Time);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(17, 22);
@@ -146,41 +145,40 @@
             this.groupBox2.Size = new System.Drawing.Size(281, 217);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Alarm";
             // 
-            // textBox4
+            // Alarm1_Minute_Textbox
             // 
-            this.textBox4.Location = new System.Drawing.Point(128, 65);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 5;
+            this.Alarm1_Minute_Textbox.Location = new System.Drawing.Point(128, 65);
+            this.Alarm1_Minute_Textbox.Name = "Alarm1_Minute_Textbox";
+            this.Alarm1_Minute_Textbox.Size = new System.Drawing.Size(100, 20);
+            this.Alarm1_Minute_Textbox.TabIndex = 5;
             // 
-            // textBox3
+            // Alarm1_Hour_Textbox
             // 
-            this.textBox3.Location = new System.Drawing.Point(128, 31);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 4;
+            this.Alarm1_Hour_Textbox.Location = new System.Drawing.Point(128, 31);
+            this.Alarm1_Hour_Textbox.Name = "Alarm1_Hour_Textbox";
+            this.Alarm1_Hour_Textbox.Size = new System.Drawing.Size(100, 20);
+            this.Alarm1_Hour_Textbox.TabIndex = 4;
             // 
-            // SetAlarm_Button
+            // Tab1_Set_Alarm1_Buttom
             // 
-            this.SetAlarm_Button.Location = new System.Drawing.Point(75, 171);
-            this.SetAlarm_Button.Name = "SetAlarm_Button";
-            this.SetAlarm_Button.Size = new System.Drawing.Size(75, 23);
-            this.SetAlarm_Button.TabIndex = 3;
-            this.SetAlarm_Button.Text = "Set";
-            this.SetAlarm_Button.UseVisualStyleBackColor = true;
-            this.SetAlarm_Button.Click += new System.EventHandler(this.SetAlarm_Button_Click);
+            this.Tab1_Set_Alarm1_Buttom.Location = new System.Drawing.Point(75, 171);
+            this.Tab1_Set_Alarm1_Buttom.Name = "Tab1_Set_Alarm1_Buttom";
+            this.Tab1_Set_Alarm1_Buttom.Size = new System.Drawing.Size(75, 23);
+            this.Tab1_Set_Alarm1_Buttom.TabIndex = 3;
+            this.Tab1_Set_Alarm1_Buttom.Text = "Set";
+            this.Tab1_Set_Alarm1_Buttom.UseVisualStyleBackColor = true;
+            this.Tab1_Set_Alarm1_Buttom.Click += new System.EventHandler(this.SetAlarm_Button_Click);
             // 
-            // label6
+            // Alarm_Clock1_Time
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(45, 100);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(145, 55);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "00:00";
+            this.Alarm_Clock1_Time.AutoSize = true;
+            this.Alarm_Clock1_Time.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Alarm_Clock1_Time.Location = new System.Drawing.Point(45, 100);
+            this.Alarm_Clock1_Time.Name = "Alarm_Clock1_Time";
+            this.Alarm_Clock1_Time.Size = new System.Drawing.Size(145, 55);
+            this.Alarm_Clock1_Time.TabIndex = 2;
+            this.Alarm_Clock1_Time.Text = "00:00";
             // 
             // label5
             // 
@@ -235,46 +233,48 @@
             this.AlarmTabPage2.TabIndex = 1;
             this.AlarmTabPage2.Text = "Alarm 2";
             this.AlarmTabPage2.UseVisualStyleBackColor = true;
+            this.AlarmTabPage2.Click += new System.EventHandler(this.AlarmTabPage2_Click);
             // 
             // AlarmBox2
             // 
-            this.AlarmBox2.Controls.Add(this.textBox6);
-            this.AlarmBox2.Controls.Add(this.textBox5);
-            this.AlarmBox2.Controls.Add(this.SetButtomTab2);
-            this.AlarmBox2.Controls.Add(this.AlarmClockTab2);
+            this.AlarmBox2.Controls.Add(this.Alarm2_Minute_Textbox);
+            this.AlarmBox2.Controls.Add(this.Alarm2_Hour_Textbox);
+            this.AlarmBox2.Controls.Add(this.Tab2_Set_Alarm2_Buttom);
+            this.AlarmBox2.Controls.Add(this.Alarm_Clock2_Time);
             this.AlarmBox2.Controls.Add(this.SetMinuteTab2);
             this.AlarmBox2.Controls.Add(this.SetHoursTabPage2);
-            this.AlarmBox2.Location = new System.Drawing.Point(21, 32);
+            this.AlarmBox2.Location = new System.Drawing.Point(18, 29);
             this.AlarmBox2.Name = "AlarmBox2";
-            this.AlarmBox2.Size = new System.Drawing.Size(281, 217);
+            this.AlarmBox2.Size = new System.Drawing.Size(284, 220);
             this.AlarmBox2.TabIndex = 1;
             this.AlarmBox2.TabStop = false;
             // 
-            // textBox6
+            // Alarm2_Minute_Textbox
             // 
-            this.textBox6.Location = new System.Drawing.Point(124, 58);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 9;
+            this.Alarm2_Minute_Textbox.Location = new System.Drawing.Point(124, 58);
+            this.Alarm2_Minute_Textbox.Name = "Alarm2_Minute_Textbox";
+            this.Alarm2_Minute_Textbox.Size = new System.Drawing.Size(100, 20);
+            this.Alarm2_Minute_Textbox.TabIndex = 9;
             // 
-            // textBox5
+            // Alarm2_Hour_Textbox
             // 
-            this.textBox5.Location = new System.Drawing.Point(124, 37);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 8;
+            this.Alarm2_Hour_Textbox.Location = new System.Drawing.Point(124, 37);
+            this.Alarm2_Hour_Textbox.Name = "Alarm2_Hour_Textbox";
+            this.Alarm2_Hour_Textbox.Size = new System.Drawing.Size(100, 20);
+            this.Alarm2_Hour_Textbox.TabIndex = 8;
             // 
-            // SetButtomTab2
+            // Tab2_Set_Alarm2_Buttom
             // 
-            this.SetButtomTab2.Location = new System.Drawing.Point(74, 155);
-            this.SetButtomTab2.Name = "SetButtomTab2";
-            this.SetButtomTab2.Size = new System.Drawing.Size(75, 23);
-            this.SetButtomTab2.TabIndex = 7;
-            this.SetButtomTab2.Text = "Set";
-            this.SetButtomTab2.UseVisualStyleBackColor = true;
+            this.Tab2_Set_Alarm2_Buttom.Location = new System.Drawing.Point(74, 155);
+            this.Tab2_Set_Alarm2_Buttom.Name = "Tab2_Set_Alarm2_Buttom";
+            this.Tab2_Set_Alarm2_Buttom.Size = new System.Drawing.Size(75, 23);
+            this.Tab2_Set_Alarm2_Buttom.TabIndex = 7;
+            this.Tab2_Set_Alarm2_Buttom.Text = "Set";
+            this.Tab2_Set_Alarm2_Buttom.UseVisualStyleBackColor = true;
             // 
-            // AlarmClockTab2
+            // Alarm_Clock2_Time
             // 
+<<<<<<< HEAD
             this.AlarmClockTab2.AutoSize = true;
             this.AlarmClockTab2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AlarmClockTab2.Location = new System.Drawing.Point(45, 97);
@@ -283,6 +283,15 @@
             this.AlarmClockTab2.TabIndex = 6;
             this.AlarmClockTab2.Text = "00:00";
             this.AlarmClockTab2.Click += new System.EventHandler(this.AlarmClockTab2_Click);
+=======
+            this.Alarm_Clock2_Time.AutoSize = true;
+            this.Alarm_Clock2_Time.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Alarm_Clock2_Time.Location = new System.Drawing.Point(45, 97);
+            this.Alarm_Clock2_Time.Name = "Alarm_Clock2_Time";
+            this.Alarm_Clock2_Time.Size = new System.Drawing.Size(145, 55);
+            this.Alarm_Clock2_Time.TabIndex = 6;
+            this.Alarm_Clock2_Time.Text = "00:00";
+>>>>>>> f2c6285f07985e64d21d5c10dd667b26c8bf4ad7
             // 
             // SetMinuteTab2
             // 
@@ -346,27 +355,35 @@
         private System.Windows.Forms.Label Setminutes;
         private System.Windows.Forms.GroupBox clockbox;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button SetAlarm_Button;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button Tab1_Set_Alarm1_Buttom;
+        private System.Windows.Forms.Label Alarm_Clock1_Time;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabControl AlarmTabBox;
         private System.Windows.Forms.TabPage AlarmTabPage1;
         private System.Windows.Forms.TabPage AlarmTabPage2;
         private System.Windows.Forms.GroupBox AlarmBox2;
-        private System.Windows.Forms.Button SetButtomTab2;
-        private System.Windows.Forms.Label AlarmClockTab2;
+        private System.Windows.Forms.Button Tab2_Set_Alarm2_Buttom;
+        private System.Windows.Forms.Label Alarm_Clock2_Time;
         private System.Windows.Forms.Label SetMinuteTab2;
         private System.Windows.Forms.Label SetHoursTabPage2;
+<<<<<<< HEAD
         private System.Windows.Forms.TextBox clock_minuteTextbox;
         private System.Windows.Forms.TextBox Clock_HourTextbox;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
+=======
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Alarm1_Minute_Textbox;
+        private System.Windows.Forms.TextBox Alarm1_Hour_Textbox;
+        private System.Windows.Forms.TextBox Alarm2_Minute_Textbox;
+        private System.Windows.Forms.TextBox Alarm2_Hour_Textbox;
+>>>>>>> f2c6285f07985e64d21d5c10dd667b26c8bf4ad7
         private System.ComponentModel.BackgroundWorker ClockBackgroundWorker;
         private System.Windows.Forms.Timer ClockTimer;
-        private System.Windows.Forms.Timer timer1;
     }
 }
 

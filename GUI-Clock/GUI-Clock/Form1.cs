@@ -35,11 +35,13 @@ namespace GUI_Clock
             {
                 Start_Time();
                 Start_Button.Text = "Stop";
+                //programLogic.clock.StartClock();
                 ClockTimer.Start();
             }
             else
             {
                 Start_Button.Text = "Start";
+                //programLogic.clock.StopClock();
                 ClockTimer.Stop();
             }
         }
@@ -62,18 +64,11 @@ namespace GUI_Clock
 
         private void ClockBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            //if (clockvalues == "00:00")
-            //{
-            //    clockvalues = "11:11";
-            //}
-            //else
-            //{
-            //    clockvalues = "00:00";
-            //}
+            
             programLogic.clock.Timer_Elapsed();
             currenttime = programLogic.CreateTimeString();
 
-            System.Diagnostics.Debug.WriteLine("this is Cbackgw");
+            //System.Diagnostics.Debug.WriteLine("this is Cbackgw");
         }
 
         /// <summary>
@@ -87,13 +82,16 @@ namespace GUI_Clock
 
         private void SetAlarm_Button_Click(object sender, EventArgs e)
         {
-            if (SetAlarm_Button.Text == "Set")
+            if (Tab1_Set_Alarm1_Buttom.Text == "Set")
             {
-                SetAlarm_Button.Text = "Abort";
+                Tab1_Set_Alarm1_Buttom.Text = "Abort";
+                int _hour = programLogic.CreateTimeIntiger(Alarm1_Hour_Textbox.Text);
+                int _minute = programLogic.CreateTimeIntiger(Alarm1_Minute_Textbox.Text);
+                programLogic._alarm1.SetAlarm(_hour, _minute);
             }
             else
             {
-                SetAlarm_Button.Text = "Set";
+                Tab1_Set_Alarm1_Buttom.Text = "Set";
             }
         }
 
@@ -107,7 +105,11 @@ namespace GUI_Clock
             }
         }
 
+<<<<<<< HEAD
         private void AlarmClockTab2_Click(object sender, EventArgs e)
+=======
+        private void AlarmTabPage2_Click(object sender, EventArgs e)
+>>>>>>> f2c6285f07985e64d21d5c10dd667b26c8bf4ad7
         {
 
         }
