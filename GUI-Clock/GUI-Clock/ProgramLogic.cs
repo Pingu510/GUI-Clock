@@ -16,6 +16,7 @@ namespace GUI_Clock
 
         public ProgramLogic()
         {
+            //test
             //Thread ThreadAlarmTime = new Thread(new ThreadStart(TimeForSetOffAlarm));
             //ThreadAlarmTime.Start();
         }
