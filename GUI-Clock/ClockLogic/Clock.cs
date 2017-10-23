@@ -37,8 +37,7 @@ namespace ClockLogic
             else
             {
                 _currentMinute.Tick();
-            }
-            
+            }           
         }
 
         /// <summary>

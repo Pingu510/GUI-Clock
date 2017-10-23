@@ -34,8 +34,8 @@
             this.Sethour = new System.Windows.Forms.Label();
             this.Setminutes = new System.Windows.Forms.Label();
             this.clockbox = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.clock_minuteTextbox = new System.Windows.Forms.TextBox();
+            this.Clock_HourTextbox = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -106,8 +106,8 @@
             // 
             // clockbox
             // 
-            this.clockbox.Controls.Add(this.textBox2);
-            this.clockbox.Controls.Add(this.textBox1);
+            this.clockbox.Controls.Add(this.clock_minuteTextbox);
+            this.clockbox.Controls.Add(this.Clock_HourTextbox);
             this.clockbox.Controls.Add(this.Clock_Form);
             this.clockbox.Controls.Add(this.Start_Button);
             this.clockbox.Controls.Add(this.Sethour);
@@ -119,19 +119,19 @@
             this.clockbox.TabStop = false;
             this.clockbox.Text = "Clock";
             // 
-            // textBox2
+            // clock_minuteTextbox
             // 
-            this.textBox2.Location = new System.Drawing.Point(108, 54);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 5;
+            this.clock_minuteTextbox.Location = new System.Drawing.Point(108, 54);
+            this.clock_minuteTextbox.Name = "clock_minuteTextbox";
+            this.clock_minuteTextbox.Size = new System.Drawing.Size(100, 20);
+            this.clock_minuteTextbox.TabIndex = 5;
             // 
-            // textBox1
+            // Clock_HourTextbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(108, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
+            this.Clock_HourTextbox.Location = new System.Drawing.Point(108, 30);
+            this.Clock_HourTextbox.Name = "Clock_HourTextbox";
+            this.Clock_HourTextbox.Size = new System.Drawing.Size(100, 20);
+            this.Clock_HourTextbox.TabIndex = 4;
             // 
             // groupBox2
             // 
@@ -282,6 +282,7 @@
             this.AlarmClockTab2.Size = new System.Drawing.Size(145, 55);
             this.AlarmClockTab2.TabIndex = 6;
             this.AlarmClockTab2.Text = "00:00";
+            this.AlarmClockTab2.Click += new System.EventHandler(this.AlarmClockTab2_Click);
             // 
             // SetMinuteTab2
             // 
@@ -357,8 +358,8 @@
         private System.Windows.Forms.Label AlarmClockTab2;
         private System.Windows.Forms.Label SetMinuteTab2;
         private System.Windows.Forms.Label SetHoursTabPage2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox clock_minuteTextbox;
+        private System.Windows.Forms.TextBox Clock_HourTextbox;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox6;

@@ -19,6 +19,8 @@ namespace GUI_Clock
             //Thread ThreadAlarmTime = new Thread(new ThreadStart(TimeForSetOffAlarm));
             //ThreadAlarmTime.Start();
         }
+
+
         
         /// <summary>
         /// Creates a correct format string for windows forms clock text.

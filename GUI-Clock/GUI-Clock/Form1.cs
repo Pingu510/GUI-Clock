@@ -25,6 +25,7 @@ namespace GUI_Clock
         }
 
 
+
         // This button event starts and stops the clock
         private void Start_Button_Click(object sender, EventArgs e)
         {
@@ -32,6 +33,7 @@ namespace GUI_Clock
             //Blink();
             if (Start_Button.Text == "Start")
             {
+                Start_Time();
                 Start_Button.Text = "Stop";
                 ClockTimer.Start();
             }
@@ -40,6 +42,11 @@ namespace GUI_Clock
                 Start_Button.Text = "Start";
                 ClockTimer.Stop();
             }
+        }
+
+        private void Start_Time()
+        {
+
         }
 
         /// <summary>
@@ -90,6 +97,7 @@ namespace GUI_Clock
             }
         }
 
+        //Blinkande bakgrund
         private async void Blink()
         {
             while(true)
@@ -97,6 +105,11 @@ namespace GUI_Clock
                 await Task.Delay(1000);
                 AlarmTabPage2.BackColor = AlarmTabPage2.BackColor == Color.DeepPink ? Color.White : Color.Red;
             }
+        }
+
+        private void AlarmClockTab2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
