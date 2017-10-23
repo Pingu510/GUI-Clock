@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
 
-namespace ClockLogic
+namespace ClockLogic //TEstar
 {
     public class Minute : IMinute
     {

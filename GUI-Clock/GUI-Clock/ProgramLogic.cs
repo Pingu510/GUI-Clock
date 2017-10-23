@@ -14,38 +14,40 @@ namespace GUI_Clock
         private Alarm _alarm1 = new Alarm();
         private Alarm _alarm2 = new Alarm();
 
-        public Alarm Alarm2 { get => _alarm2; set => _alarm2 = value; }
-        public Alarm Alarm1 { get => _alarm1; set => _alarm1 = value; }
-
         public ProgramLogic()
         {
-
             //Thread ThreadAlarmTime = new Thread(new ThreadStart(TimeForSetOffAlarm));
             //ThreadAlarmTime.Start();
-
-            clock.Minute.OnTick += Minute_OnTick;
         }
-
-        private void Minute_OnTick()
+        
+        /// <summary>
+        /// Creates a correct format string for windows forms clock text.
+        /// </summary>
+        public string CreateTimeString()
         {
-            
-        }
+            string currenttime;
+            string strhours = clock.GetHours().ToString();
+            string strminutes = clock.GetMinutes().ToString();
 
-        public void TickingClock()
-        {
-            //clock.Clock();
+            if (strhours.Length < 2)
+            {
+                strhours = "0" + strhours;
+            }
+
+            if(clock.GetMinutes().ToString().Length < 2)
+            {
+                strminutes = "0" + strminutes;
+            }
+
+            currenttime = strhours + ":" + strminutes;
+            return currenttime;
         }
 
         public bool TimeForSetOffAlarm()
         {
-            if (Alarm1.CheckAlarm(clock.GetHours(), clock.GetMinutes()) || Alarm2.CheckAlarm(clock.GetHours(), clock.GetMinutes()))
+            if (_alarm1.CheckAlarm(clock.GetHours(), clock.GetMinutes()) || _alarm2.CheckAlarm(clock.GetHours(), clock.GetMinutes()))
                 return true;
             return false;            
-        }
-
-        public void StartClock()
-        {
-            clock.StartClock();
         }
     }
 }
