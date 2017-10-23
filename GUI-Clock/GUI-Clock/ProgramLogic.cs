@@ -11,8 +11,8 @@ namespace GUI_Clock
     public class ProgramLogic
     {
         public Clock clock = new Clock();
-        private Alarm _alarm1 = new Alarm();
-        private Alarm _alarm2 = new Alarm();
+        public Alarm _alarm1 = new Alarm();
+        public Alarm _alarm2 = new Alarm();
 
         public ProgramLogic()
         {
@@ -45,7 +45,24 @@ namespace GUI_Clock
             return currenttime;
         }
 
-        public bool TimeForSetOffAlarm()
+        /// <summary>
+        /// Converts from string to clocktime int
+        /// </summary>
+        /// <returns></returns>
+        public int CreateTimeIntiger(string time)
+        {
+            try
+            {
+                return int.Parse(time);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+            public bool TimeForSetOffAlarm()
         {
             if (_alarm1.CheckAlarm(clock.GetHours(), clock.GetMinutes()) || _alarm2.CheckAlarm(clock.GetHours(), clock.GetMinutes()))
                 return true;

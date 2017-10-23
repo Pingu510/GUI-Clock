@@ -62,18 +62,10 @@ namespace GUI_Clock
 
         private void ClockBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            //if (clockvalues == "00:00")
-            //{
-            //    clockvalues = "11:11";
-            //}
-            //else
-            //{
-            //    clockvalues = "00:00";
-            //}
+            
             programLogic.clock.Timer_Elapsed();
             currenttime = programLogic.CreateTimeString();
 
-            System.Diagnostics.Debug.WriteLine("this is Cbackgw");
         }
 
         /// <summary>
@@ -87,13 +79,10 @@ namespace GUI_Clock
 
         private void SetAlarm_Button_Click(object sender, EventArgs e)
         {
-            if (SetAlarm_Button.Text == "Set")
             {
-                SetAlarm_Button.Text = "Abort";
             }
             else
             {
-                SetAlarm_Button.Text = "Set";
             }
         }
 
@@ -107,7 +96,11 @@ namespace GUI_Clock
             }
         }
 
+<<<<<<< HEAD
         private void AlarmClockTab2_Click(object sender, EventArgs e)
+=======
+        private void AlarmTabPage2_Click(object sender, EventArgs e)
+>>>>>>> f2c6285f07985e64d21d5c10dd667b26c8bf4ad7
         {
 
         }
