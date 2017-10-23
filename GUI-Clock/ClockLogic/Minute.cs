@@ -10,6 +10,8 @@ namespace ClockLogic
 {
     public class Minute : IMinute
     {
+        public event OnTick OnTick;
+
         Timer t = new Timer();
 
         private int _MinuteValue;
@@ -21,7 +23,7 @@ namespace ClockLogic
             get { return _MinuteValue; }
             set
             {
-                if (value < 0 || value > 59)
+                if (value < 0 || value > 60)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
@@ -35,6 +37,8 @@ namespace ClockLogic
         public void Tick()
         {
             MinuteValue += 1;
+            MinuteValue %= 60;
+            OnTick();
         }
     }
 }

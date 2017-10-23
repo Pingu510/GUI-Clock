@@ -7,35 +7,33 @@ using System.Timers;
 
 namespace ClockLogic
 
-{    public class Clock : IClock
+{
+    public delegate void OnTick();
+    public class Clock : IClock
     {
         Timer timer;
-        private Hour _currentHour = new Hour();
-        private Minute _currentMinute = new Minute();
+        private Hour _hour;
+        private Minute _minute;
 
-        public void ClockFunction()
+        public Hour Hour { get => _hour; set => _hour = value; }
+        public Minute Minute { get => _minute; set => _minute = value; }
+
+        public Clock()
         {
+            Hour = new Hour();
+            Minute = new Minute();
             timer = new Timer();
             timer.Interval = 1000;
             timer.Elapsed += Timer_Elapsed;
-            timer.Start();
-
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            if (_currentMinute.MinuteValue == 59)
+            if (Minute.MinuteValue == 59)
             {
-                if (_currentHour.HourValue == 23)
-                    _currentHour.HourValue = 0;
-                else
-                    _currentHour.Tick();
+                Hour.Tick();
             }
-            else
-            {
-                _currentMinute.Tick();
-            }
-            
+            Minute.Tick();
         }
 
         /// <summary>
@@ -44,7 +42,7 @@ namespace ClockLogic
         /// <returns></returns>
         public int GetHours()
         {
-            return _currentHour.HourValue;
+            return Hour.HourValue;
         }
 
         /// <summary>
@@ -52,7 +50,7 @@ namespace ClockLogic
         /// </summary>
         public int GetMinutes()
         {
-            return _currentMinute.MinuteValue;
+            return Minute.MinuteValue;
         }
 
         /// <summary>
@@ -60,8 +58,8 @@ namespace ClockLogic
         /// </summary>
         public void SetTime(int hour, int minute)
         {
-            _currentHour.HourValue = hour;
-            _currentMinute.MinuteValue = minute;
+            Hour.HourValue = hour;
+            Minute.MinuteValue = minute;
         }
 
         /// <summary>
@@ -79,5 +77,5 @@ namespace ClockLogic
         {
             timer.Stop();
         }
-    }    
+    }
 }

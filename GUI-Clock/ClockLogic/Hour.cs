@@ -7,7 +7,8 @@ using System.Timers;
 
 namespace ClockLogic
 {
-    class Hour : IHour
+  
+    public class Hour : IHour
     {
         //private static Timer timer;
 
@@ -20,7 +21,7 @@ namespace ClockLogic
             get { return _HourValue; }
             set
             {
-                if (value < 0 || value >= 24)
+                if (value < 0 || value >24)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
@@ -36,6 +37,8 @@ namespace ClockLogic
         public void Tick()
         {
             HourValue += 1;
+            HourValue %= 24;
+          
         }
     }
 }

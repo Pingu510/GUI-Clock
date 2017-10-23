@@ -8,20 +8,26 @@ namespace ClockLogic
 {
     public class Alarm : IAlarm
     {
-        private int _alarmHour
+        private int _alarmHour;
+        public int alarmHour
         {
             get { return _alarmHour; }
-            set
+            set 
             {
+                _alarmHour = value;
                 if (value < 0 || value > 23)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
+                
                 _alarmHour = value;
             }
         }
 
-        private int _alarmMinute {
+        private int _alarmMinute;
+        public int alarmMinute
+
+        {
             get { return _alarmMinute; }
             set
             {
