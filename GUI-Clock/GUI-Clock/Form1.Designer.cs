@@ -33,6 +33,7 @@
             this.Sethour = new System.Windows.Forms.Label();
             this.Setminutes = new System.Windows.Forms.Label();
             this.clockbox = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -52,7 +53,6 @@
             this.AlarmClockTab2 = new System.Windows.Forms.Label();
             this.SetMinuteTab2 = new System.Windows.Forms.Label();
             this.SetHoursTabPage2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.clockbox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.AlarmTabBox.SuspendLayout();
@@ -117,6 +117,17 @@
             this.clockbox.TabIndex = 4;
             this.clockbox.TabStop = false;
             this.clockbox.Text = "Clock";
+            this.clockbox.Enter += new System.EventHandler(this.clockbox_Enter);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(206, 132);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Stop";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox2
             // 
@@ -155,6 +166,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 5;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // textBox3
             // 
@@ -305,16 +317,6 @@
             this.SetHoursTabPage2.TabIndex = 4;
             this.SetHoursTabPage2.Text = "Set hours:";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(206, 132);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Stop";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -324,6 +326,7 @@
             this.Controls.Add(this.clockbox);
             this.Name = "Form1";
             this.Text = "Klocka";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.clockbox.ResumeLayout(false);
             this.clockbox.PerformLayout();
             this.groupBox2.ResumeLayout(false);

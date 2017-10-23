@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClockLogic;
+using System.Media;
 
 namespace GUI_Clock
 {
@@ -32,33 +33,42 @@ namespace GUI_Clock
 
         public void Update_Clock_Form()
         {
-            programLogic.TickingClock();
+           // programLogic.TickingClock();
 
             BeginInvoke((MethodInvoker)delegate () {
                 Clock_Form.Text = $"{programLogic.clock.GetHours().ToString("00")}:{programLogic.clock.GetMinutes().ToString("00")}";
-              var isAlert =  programLogic.Alarm1.CheckAlarm(programLogic.clock.GetHours(), programLogic.clock.GetMinutes());
+              var isAlert =  programLogic._alarm1.CheckAlarm(programLogic.clock.GetHours(), programLogic.clock.GetMinutes());
                 if (isAlert)
                 {
-//noise
+                    SystemSounds.Asterisk.Play();
+                    //noise
                 }
                 else
                 {
 //remove the noise
                 }
 
-            });
+            });//hej
 
         }
 
         private void Start_Button_Click(object sender, EventArgs e)
         {
-            AlarmTabPage2.BackColor = Color.DeepPink;
-            Blink();
-            programLogic.clock.SetTime(int.Parse(textBox1.Text), int.Parse(textBox2.Text));
-            programLogic.StartClock();
+            if (Start_Button.Text == "Start") //Startar klocka
+            {
+                Start_Button.Text = "Stop";
+                AlarmTabPage2.BackColor = Color.DeepPink;
+                Blink();
+                programLogic.clock.SetTime(int.Parse(textBox1.Text), int.Parse(textBox2.Text));
+                programLogic.clock.StartClock();
 
-            textBox1.Enabled = false;
-            textBox2.Enabled = false;
+                textBox1.Enabled = false;
+                textBox2.Enabled = false;
+            }
+            else//Stänger klocka
+            {
+                Start_Button.Text = "Start";
+            }
         }
 
         private async void Blink()
@@ -103,6 +113,21 @@ namespace GUI_Clock
             programLogic.clock.StopClock();
             textBox1.Enabled = true;
             textBox2.Enabled = true;
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clockbox_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
