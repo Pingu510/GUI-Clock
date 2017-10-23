@@ -35,11 +35,13 @@ namespace GUI_Clock
             {
                 Start_Time();
                 Start_Button.Text = "Stop";
+                //programLogic.clock.StartClock();
                 ClockTimer.Start();
             }
             else
             {
                 Start_Button.Text = "Start";
+                //programLogic.clock.StopClock();
                 ClockTimer.Stop();
             }
         }
@@ -66,6 +68,7 @@ namespace GUI_Clock
             programLogic.clock.Timer_Elapsed();
             currenttime = programLogic.CreateTimeString();
 
+            //System.Diagnostics.Debug.WriteLine("this is Cbackgw");
         }
 
         /// <summary>
@@ -79,10 +82,16 @@ namespace GUI_Clock
 
         private void SetAlarm_Button_Click(object sender, EventArgs e)
         {
+            if (Tab1_Set_Alarm1_Buttom.Text == "Set")
             {
+                Tab1_Set_Alarm1_Buttom.Text = "Abort";
+                int _hour = programLogic.CreateTimeIntiger(Alarm1_Hour_Textbox.Text);
+                int _minute = programLogic.CreateTimeIntiger(Alarm1_Minute_Textbox.Text);
+                programLogic._alarm1.SetAlarm(_hour, _minute);
             }
             else
             {
+                Tab1_Set_Alarm1_Buttom.Text = "Set";
             }
         }
 
