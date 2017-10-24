@@ -36,7 +36,7 @@ namespace GUI_Clock
            // programLogic.TickingClock();
 
             BeginInvoke((MethodInvoker)delegate () {
-                Clock_Form.Text = $"{programLogic.clock.GetHours().ToString("00")}:{programLogic.clock.GetMinutes().ToString("00")}";
+                ClockTime_Form.Text = $"{programLogic.clock.GetHours().ToString("00")}:{programLogic.clock.GetMinutes().ToString("00")}";
               var isAlert =  programLogic._alarm1.CheckAlarm(programLogic.clock.GetHours(), programLogic.clock.GetMinutes());
                 if (isAlert)
                 {
@@ -48,29 +48,29 @@ namespace GUI_Clock
 //remove the noise
                 }
 
-            });//hej
+            });
 
         }
 
         private void Start_Button_Click(object sender, EventArgs e)
         {
-            if (Start_Button.Text == "Start") //Startar klocka
+            if (ClockStart_Button.Text == "Start") //Startar klocka
             {
-                Start_Button.Text = "Stop";
+                ClockStart_Button.Text = "Stop";
                 AlarmTabPage2.BackColor = Color.DeepPink;
                 Blink();
-                programLogic.clock.SetTime(int.Parse(textBox1.Text), int.Parse(textBox2.Text));
+                programLogic.clock.SetTime(int.Parse(ClockHourInput_TextBox.Text), int.Parse(ClockMinuteInput_TextBox.Text));
                 programLogic.clock.StartClock();
 
-                textBox1.Enabled = false;
-                textBox2.Enabled = false;
+                ClockHourInput_TextBox.Enabled = false;
+                ClockMinuteInput_TextBox.Enabled = false;
             }
             else//Stänger klocka
             {
-                Start_Button.Text = "Start";
+                ClockStart_Button.Text = "Start";
                 programLogic.clock.StopClock();
-                textBox1.Enabled = true;
-                textBox2.Enabled = true;
+                ClockHourInput_TextBox.Enabled = true;
+                ClockMinuteInput_TextBox.Enabled = true;
             }
         }
 
@@ -82,73 +82,17 @@ namespace GUI_Clock
                 AlarmTabPage2.BackColor = AlarmTabPage2.BackColor == Color.DeepPink ? Color.White : Color.Red;
             }
         }
-
-        private void AlarmTabPage2_Click(object sender, EventArgs e)
-        {
-            AlarmTabPage2.BackColor = Color.DarkSalmon;
-
-                
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Clock_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        
+        private void ClockHourInput_TextBox_TextChanged(object sender, EventArgs e)
         {
             string setTime = Console.ReadLine();
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void ClockMinuteInput_TextBox_TextChanged(object sender, EventArgs e)
         {
             string setMinute = Console.ReadLine();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-        //    programLogic.clock.StopClock();
-        //    textBox1.Enabled = true;
-        //    textBox2.Enabled = true;
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void clockbox_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            // 
-            // Form1
-            // 
-            this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Name = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load_1);
-            this.ResumeLayout(false);
-
-        }
-
-        private void Form1_Load_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }
