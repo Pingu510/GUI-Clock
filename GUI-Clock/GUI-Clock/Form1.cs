@@ -24,6 +24,7 @@ namespace GUI_Clock
             InitializeComponent();
             Thread ThreadTime = new Thread(new ThreadStart(Update_Clock_Form));
             programLogic.clock.Minute.OnTick += Minute_OnTick;
+            
         }
 
         private void Minute_OnTick()

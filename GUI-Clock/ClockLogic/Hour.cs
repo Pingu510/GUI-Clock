@@ -23,7 +23,15 @@ namespace ClockLogic
             {
                 if (value < 0 || value >24)
                 {
-                    throw new ArgumentOutOfRangeException();
+                    try
+                    {
+                        throw new ArgumentOutOfRangeException();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                        
+                    }
                 }
                
                 _HourValue = value;

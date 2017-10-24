@@ -13,6 +13,7 @@ namespace GUI_Clock
         public Clock clock = new Clock();
         public Alarm _alarm1 = new Alarm();
         public Alarm _alarm2 = new Alarm();
+        
 
         public ProgramLogic()
         {
