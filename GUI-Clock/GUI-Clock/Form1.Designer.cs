@@ -30,11 +30,8 @@
         {
             this.ClockTime_Form = new System.Windows.Forms.Label();
             this.ClockStart_Button = new System.Windows.Forms.Button();
-            this.ClockHourSet = new System.Windows.Forms.Label();
-            this.ClockMinuteSet = new System.Windows.Forms.Label();
+            this.ClockTimeSet = new System.Windows.Forms.Label();
             this.Clock_GroupBox = new System.Windows.Forms.GroupBox();
-            this.ClockMinuteInput_TextBox = new System.Windows.Forms.TextBox();
-            this.ClockHourInput_TextBox = new System.Windows.Forms.TextBox();
             this.Alarm1_GroupBox = new System.Windows.Forms.GroupBox();
             this.Alarm1MinuteInput_TextBox = new System.Windows.Forms.TextBox();
             this.Alarm1HourInput_TextBox = new System.Windows.Forms.TextBox();
@@ -52,6 +49,7 @@
             this.Alarm2_Clock = new System.Windows.Forms.Label();
             this.SetAlarm2Minute = new System.Windows.Forms.Label();
             this.SetAlarm2Hour = new System.Windows.Forms.Label();
+            this.Clock_DateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.Clock_GroupBox.SuspendLayout();
             this.Alarm1_GroupBox.SuspendLayout();
             this.AlarmTabBox.SuspendLayout();
@@ -80,56 +78,28 @@
             this.ClockStart_Button.UseVisualStyleBackColor = true;
             this.ClockStart_Button.Click += new System.EventHandler(this.Start_Button_Click);
             // 
-            // ClockHourSet
+            // ClockTimeSet
             // 
-            this.ClockHourSet.AutoSize = true;
-            this.ClockHourSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClockHourSet.Location = new System.Drawing.Point(25, 30);
-            this.ClockHourSet.Name = "ClockHourSet";
-            this.ClockHourSet.Size = new System.Drawing.Size(63, 16);
-            this.ClockHourSet.TabIndex = 2;
-            this.ClockHourSet.Text = "Set hour: ";
-            // 
-            // ClockMinuteSet
-            // 
-            this.ClockMinuteSet.AutoSize = true;
-            this.ClockMinuteSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClockMinuteSet.Location = new System.Drawing.Point(25, 58);
-            this.ClockMinuteSet.Name = "ClockMinuteSet";
-            this.ClockMinuteSet.Size = new System.Drawing.Size(80, 16);
-            this.ClockMinuteSet.TabIndex = 3;
-            this.ClockMinuteSet.Text = "Set minutes:";
+            this.ClockTimeSet.AutoSize = true;
+            this.ClockTimeSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClockTimeSet.Location = new System.Drawing.Point(25, 30);
+            this.ClockTimeSet.Name = "ClockTimeSet";
+            this.ClockTimeSet.Size = new System.Drawing.Size(62, 16);
+            this.ClockTimeSet.TabIndex = 2;
+            this.ClockTimeSet.Text = "Set time: ";
             // 
             // Clock_GroupBox
             // 
-            this.Clock_GroupBox.Controls.Add(this.ClockMinuteInput_TextBox);
-            this.Clock_GroupBox.Controls.Add(this.ClockHourInput_TextBox);
+            this.Clock_GroupBox.Controls.Add(this.Clock_DateTimePicker);
             this.Clock_GroupBox.Controls.Add(this.ClockTime_Form);
             this.Clock_GroupBox.Controls.Add(this.ClockStart_Button);
-            this.Clock_GroupBox.Controls.Add(this.ClockHourSet);
-            this.Clock_GroupBox.Controls.Add(this.ClockMinuteSet);
+            this.Clock_GroupBox.Controls.Add(this.ClockTimeSet);
             this.Clock_GroupBox.Location = new System.Drawing.Point(15, 25);
             this.Clock_GroupBox.Name = "Clock_GroupBox";
             this.Clock_GroupBox.Size = new System.Drawing.Size(322, 173);
             this.Clock_GroupBox.TabIndex = 4;
             this.Clock_GroupBox.TabStop = false;
             this.Clock_GroupBox.Text = "Clock";
-            // 
-            // ClockMinuteInput_TextBox
-            // 
-            this.ClockMinuteInput_TextBox.Location = new System.Drawing.Point(108, 54);
-            this.ClockMinuteInput_TextBox.Name = "ClockMinuteInput_TextBox";
-            this.ClockMinuteInput_TextBox.Size = new System.Drawing.Size(100, 20);
-            this.ClockMinuteInput_TextBox.TabIndex = 5;
-            this.ClockMinuteInput_TextBox.TextChanged += new System.EventHandler(this.ClockMinuteInput_TextBox_TextChanged);
-            // 
-            // ClockHourInput_TextBox
-            // 
-            this.ClockHourInput_TextBox.Location = new System.Drawing.Point(108, 30);
-            this.ClockHourInput_TextBox.Name = "ClockHourInput_TextBox";
-            this.ClockHourInput_TextBox.Size = new System.Drawing.Size(100, 20);
-            this.ClockHourInput_TextBox.TabIndex = 4;
-            this.ClockHourInput_TextBox.TextChanged += new System.EventHandler(this.ClockHourInput_TextBox_TextChanged);
             // 
             // Alarm1_GroupBox
             // 
@@ -299,6 +269,17 @@
             this.SetAlarm2Hour.TabIndex = 4;
             this.SetAlarm2Hour.Text = "Set hours:";
             // 
+            // Clock_DateTimePicker
+            // 
+            this.Clock_DateTimePicker.AllowDrop = true;
+            this.Clock_DateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Clock_DateTimePicker.Location = new System.Drawing.Point(99, 30);
+            this.Clock_DateTimePicker.Name = "Clock_DateTimePicker";
+            this.Clock_DateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.Clock_DateTimePicker.TabIndex = 6;
+            this.Clock_DateTimePicker.Value = new System.DateTime(2017, 10, 24, 0, 0, 0, 0);
+            this.Clock_DateTimePicker.ValueChanged += new System.EventHandler(this.Clock_DateTimePicker_ValueChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -325,8 +306,7 @@
 
         private System.Windows.Forms.Label ClockTime_Form;
         private System.Windows.Forms.Button ClockStart_Button;
-        private System.Windows.Forms.Label ClockHourSet;
-        private System.Windows.Forms.Label ClockMinuteSet;
+        private System.Windows.Forms.Label ClockTimeSet;
         private System.Windows.Forms.GroupBox Clock_GroupBox;
         private System.Windows.Forms.GroupBox Alarm1_GroupBox;
         private System.Windows.Forms.Button Alarm1Set_Button;
@@ -341,12 +321,11 @@
         private System.Windows.Forms.Label Alarm2_Clock;
         private System.Windows.Forms.Label SetAlarm2Minute;
         private System.Windows.Forms.Label SetAlarm2Hour;
-        private System.Windows.Forms.TextBox ClockMinuteInput_TextBox;
-        private System.Windows.Forms.TextBox ClockHourInput_TextBox;
         private System.Windows.Forms.TextBox Alarm1MinuteInput_TextBox;
         private System.Windows.Forms.TextBox Alarm1HourInput_TextBox;
         private System.Windows.Forms.TextBox Alarm2MinuteInput_TextBox;
         private System.Windows.Forms.TextBox Alarm2HourInput_TextBox;
+        private System.Windows.Forms.DateTimePicker Clock_DateTimePicker;
     }
 }
 

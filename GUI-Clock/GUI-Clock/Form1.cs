@@ -17,6 +17,7 @@ namespace GUI_Clock
     {
         
         ProgramLogic programLogic = new ProgramLogic();
+        DateTime myPickedDateTime;
 
 
         public Form1()
@@ -25,6 +26,10 @@ namespace GUI_Clock
             Thread ThreadTime = new Thread(new ThreadStart(Update_Clock_Form));
             programLogic.clock.Minute.OnTick += Minute_OnTick;
             
+
+            Clock_DateTimePicker.Format = DateTimePickerFormat.Custom;
+            Clock_DateTimePicker.ShowUpDown = true;
+            Clock_DateTimePicker.CustomFormat = "HH:mm";
         }
 
         private void Minute_OnTick()
@@ -34,7 +39,6 @@ namespace GUI_Clock
 
         public void Update_Clock_Form()
         {
-           // programLogic.TickingClock();
 
             BeginInvoke((MethodInvoker)delegate () {
                 ClockTime_Form.Text = $"{programLogic.clock.GetHours().ToString("00")}:{programLogic.clock.GetMinutes().ToString("00")}";
@@ -55,23 +59,22 @@ namespace GUI_Clock
 
         private void Start_Button_Click(object sender, EventArgs e)
         {
+            
             if (ClockStart_Button.Text == "Start") //Startar klocka
             {
                 ClockStart_Button.Text = "Stop";
-                AlarmTabPage2.BackColor = Color.DeepPink;
-                Blink();
-                programLogic.clock.SetTime(int.Parse(ClockHourInput_TextBox.Text), int.Parse(ClockMinuteInput_TextBox.Text));
+
+                programLogic.clock.SetTime(myPickedDateTime.Hour, myPickedDateTime.Minute);
                 programLogic.clock.StartClock();
 
-                ClockHourInput_TextBox.Enabled = false;
-                ClockMinuteInput_TextBox.Enabled = false;
+                Clock_DateTimePicker.Enabled = false;
             }
             else//Stänger klocka
             {
                 ClockStart_Button.Text = "Start";
                 programLogic.clock.StopClock();
-                ClockHourInput_TextBox.Enabled = true;
-                ClockMinuteInput_TextBox.Enabled = true;
+
+                Clock_DateTimePicker.Enabled = true;
             }
         }
 
@@ -83,17 +86,11 @@ namespace GUI_Clock
                 AlarmTabPage2.BackColor = AlarmTabPage2.BackColor == Color.DeepPink ? Color.White : Color.Red;
             }
         }
-        
-        private void ClockHourInput_TextBox_TextChanged(object sender, EventArgs e)
+
+        private void Clock_DateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            string setTime = Console.ReadLine();
-
+            myPickedDateTime = Clock_DateTimePicker.Value;
+            ClockTime_Form.Text = myPickedDateTime.Hour.ToString() + ":" + myPickedDateTime.Minute.ToString();
         }
-
-        private void ClockMinuteInput_TextBox_TextChanged(object sender, EventArgs e)
-        {
-            string setMinute = Console.ReadLine();
-        }
-
     }
 }
