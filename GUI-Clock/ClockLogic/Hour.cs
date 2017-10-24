@@ -10,12 +10,11 @@ namespace ClockLogic
   
     public class Hour : IHour
     {
-        //private static Timer timer;
+        private int _HourValue;
 
         /// <summary>
         /// Current Hour, restricted to correct timeformat
-        /// </summary>
-        private int _HourValue;
+        /// </summary>        
         public int HourValue
         {
             get { return _HourValue; }
@@ -44,9 +43,7 @@ namespace ClockLogic
         /// 
         public void Tick()
         {
-            HourValue += 1;
-            HourValue %= 24;
-          
+            HourValue += 1;          
         }
     }
 }

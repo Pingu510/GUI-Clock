@@ -124,7 +124,6 @@
             // 
             this.Alarm1_DateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Alarm1_DateTimePicker.Location = new System.Drawing.Point(26, 46);
-            this.Alarm1_DateTimePicker.MaxDate = new System.DateTime(2017, 10, 24, 0, 0, 0, 0);
             this.Alarm1_DateTimePicker.Name = "Alarm1_DateTimePicker";
             this.Alarm1_DateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.Alarm1_DateTimePicker.TabIndex = 4;
@@ -139,6 +138,7 @@
             this.Alarm1Set_Button.TabIndex = 3;
             this.Alarm1Set_Button.Text = "Set";
             this.Alarm1Set_Button.UseVisualStyleBackColor = true;
+            this.Alarm1Set_Button.Click += new System.EventHandler(this.Alarm1Set_Button_Click);
             // 
             // Alarm1_Clock
             // 
@@ -224,6 +224,7 @@
             this.Alarm2Set_Button.TabIndex = 7;
             this.Alarm2Set_Button.Text = "Set";
             this.Alarm2Set_Button.UseVisualStyleBackColor = true;
+            this.Alarm2Set_Button.Click += new System.EventHandler(this.Alarm2Set_Button_Click);
             // 
             // Alarm2_Clock
             // 

@@ -11,27 +11,37 @@ namespace ClockLogic
     public delegate void OnTick();
     public class Clock : IClock
     {
-        Timer timer;
-        private Hour _hour;
-        private Minute _minute;
+        public Hour Hour;
+        public Minute Minute;
 
-        public Hour Hour { get => _hour; set => _hour = value; }
-        public Minute Minute { get => _minute; set => _minute = value; }
+        private Timer _timer;
 
+        /// <summary>
+        /// Constructor that creates needed objects: hour, minute, timer etc.
+        /// </summary>
         public Clock()
         {
             Hour = new Hour();
             Minute = new Minute();
-            timer = new Timer();
-            timer.Interval = 1000;
-            timer.Elapsed += Timer_Elapsed;
+            _timer = new Timer();
+            _timer.Interval = 1000;
+            _timer.Elapsed += Timer_Elapsed;
         }
 
+        /// <summary>
+        /// Controls clock logic such as definition of hour and minute.
+        /// </summary>
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             if (Minute.MinuteValue == 59)
             {
-                Hour.Tick();
+                Minute.MinuteValue = -1;
+                if (Hour.HourValue == 23)
+                {
+                    Hour.HourValue = 0;
+                }
+                else
+                    Hour.Tick();
             }
             Minute.Tick();
         }
@@ -56,10 +66,10 @@ namespace ClockLogic
         /// <summary>
         /// Sets new time from parameters.
         /// </summary>
-        public void SetTime(int hour, int minute)
+        public void SetTime(int setnewhour, int setnewminute)
         {
-            Hour.HourValue = hour;
-            Minute.MinuteValue = minute;
+            Hour.HourValue = setnewhour;
+            Minute.MinuteValue = setnewminute;
         }
 
         /// <summary>
@@ -67,7 +77,7 @@ namespace ClockLogic
         /// </summary>
         public void StartClock()
         {
-            timer.Start();
+            _timer.Start();
         }
 
         /// <summary>
@@ -75,7 +85,7 @@ namespace ClockLogic
         /// </summary>
         public void StopClock()
         {
-            timer.Stop();
+            _timer.Stop();
         }
     }
 }

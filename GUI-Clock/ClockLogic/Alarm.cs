@@ -8,35 +8,47 @@ namespace ClockLogic
 {
     public class Alarm : IAlarm
     {
-        private int _alarmHour;
-        public int alarmHour
+        private bool _isactive { get; set; }
+        private int _alarmhour;
+        private int _alarmminute;
+        /// <summary>
+        /// 
+        /// </summary>
+        private int Alarmhour
         {
-            get { return _alarmHour; }
+            get { return _alarmhour; }
             set 
             {
-                _alarmHour = value;
                 if (value < 0 || value > 23)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
-                
-                _alarmHour = value;
+                _alarmhour = value;
             }
         }
 
-        private int _alarmMinute;
-        public int alarmMinute
-
+        /// <summary>
+        /// 
+        /// </summary>
+        public int Alarmminute
         {
-            get { return _alarmMinute; }
+            get { return _alarmminute; }
             set
             {
                 if (value < 0 || value > 59)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
-                _alarmMinute = value;
+                _alarmminute = value;
             }
+        }
+
+        /// <summary>
+        /// Sets the alarm to active or inactive
+        /// </summary>
+        public void SetToActive(bool value)
+        {
+            _isactive = value;
         }
 
         /// <summary>
@@ -44,7 +56,7 @@ namespace ClockLogic
         /// </summary>
         public bool CheckAlarm(int hour, int minute)
         {
-            if (this._alarmHour == hour && this._alarmMinute == minute)
+            if (_isactive && this._alarmhour == hour && this._alarmminute == minute)
             {
                 return true;
             }
@@ -52,12 +64,13 @@ namespace ClockLogic
         }
 
         /// <summary>
-        /// Sets alarm, values are restricted to correct timeformat
+        /// Sets alarm, values are restricted to correct timeformat, automaticly sets the alarm to active
         /// </summary>
         public void SetAlarm(int hour, int minute)
         {
-            _alarmHour = hour;
-            _alarmMinute = minute; 
+            _alarmhour = hour;
+            _alarmminute = minute;
+            SetToActive(true);
         }
     }
 }

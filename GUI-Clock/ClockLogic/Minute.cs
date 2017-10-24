@@ -12,9 +12,8 @@ namespace ClockLogic //TEstar
     {
         public event OnTick OnTick;
 
-        Timer t = new Timer();
-
         private int _MinuteValue;
+
         /// <summary>
         /// Current Minute, restricted to correct timeformat.
         /// </summary>
@@ -23,7 +22,7 @@ namespace ClockLogic //TEstar
             get { return _MinuteValue; }
             set
             {
-                if (value < 0 || value > 60)
+                if (value < -1 || value > 60)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
@@ -37,7 +36,6 @@ namespace ClockLogic //TEstar
         public void Tick()
         {
             MinuteValue += 1;
-            MinuteValue %= 60;
             OnTick();
         }
     }
