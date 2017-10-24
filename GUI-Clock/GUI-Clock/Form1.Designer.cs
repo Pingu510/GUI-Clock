@@ -32,24 +32,20 @@
             this.ClockStart_Button = new System.Windows.Forms.Button();
             this.ClockTimeSet = new System.Windows.Forms.Label();
             this.Clock_GroupBox = new System.Windows.Forms.GroupBox();
+            this.Clock_DateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.Alarm1_GroupBox = new System.Windows.Forms.GroupBox();
-            this.Alarm1MinuteInput_TextBox = new System.Windows.Forms.TextBox();
-            this.Alarm1HourInput_TextBox = new System.Windows.Forms.TextBox();
+            this.Alarm1_DateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.Alarm1Set_Button = new System.Windows.Forms.Button();
             this.Alarm1_Clock = new System.Windows.Forms.Label();
-            this.SetAlarmMinute1 = new System.Windows.Forms.Label();
             this.SetAlarmHour1 = new System.Windows.Forms.Label();
             this.AlarmTabBox = new System.Windows.Forms.TabControl();
             this.AlarmTabPage1 = new System.Windows.Forms.TabPage();
             this.AlarmTabPage2 = new System.Windows.Forms.TabPage();
             this.Alarm2_GroupBox = new System.Windows.Forms.GroupBox();
-            this.Alarm2MinuteInput_TextBox = new System.Windows.Forms.TextBox();
-            this.Alarm2HourInput_TextBox = new System.Windows.Forms.TextBox();
+            this.Alarm2_DateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.Alarm2Set_Button = new System.Windows.Forms.Button();
             this.Alarm2_Clock = new System.Windows.Forms.Label();
-            this.SetAlarm2Minute = new System.Windows.Forms.Label();
             this.SetAlarm2Hour = new System.Windows.Forms.Label();
-            this.Clock_DateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.Clock_GroupBox.SuspendLayout();
             this.Alarm1_GroupBox.SuspendLayout();
             this.AlarmTabBox.SuspendLayout();
@@ -101,13 +97,22 @@
             this.Clock_GroupBox.TabStop = false;
             this.Clock_GroupBox.Text = "Clock";
             // 
+            // Clock_DateTimePicker
+            // 
+            this.Clock_DateTimePicker.AllowDrop = true;
+            this.Clock_DateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Clock_DateTimePicker.Location = new System.Drawing.Point(99, 30);
+            this.Clock_DateTimePicker.Name = "Clock_DateTimePicker";
+            this.Clock_DateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.Clock_DateTimePicker.TabIndex = 6;
+            this.Clock_DateTimePicker.Value = new System.DateTime(2017, 10, 24, 0, 0, 0, 0);
+            this.Clock_DateTimePicker.ValueChanged += new System.EventHandler(this.Clock_DateTimePicker_ValueChanged);
+            // 
             // Alarm1_GroupBox
             // 
-            this.Alarm1_GroupBox.Controls.Add(this.Alarm1MinuteInput_TextBox);
-            this.Alarm1_GroupBox.Controls.Add(this.Alarm1HourInput_TextBox);
+            this.Alarm1_GroupBox.Controls.Add(this.Alarm1_DateTimePicker);
             this.Alarm1_GroupBox.Controls.Add(this.Alarm1Set_Button);
             this.Alarm1_GroupBox.Controls.Add(this.Alarm1_Clock);
-            this.Alarm1_GroupBox.Controls.Add(this.SetAlarmMinute1);
             this.Alarm1_GroupBox.Controls.Add(this.SetAlarmHour1);
             this.Alarm1_GroupBox.Location = new System.Drawing.Point(17, 22);
             this.Alarm1_GroupBox.Name = "Alarm1_GroupBox";
@@ -115,19 +120,16 @@
             this.Alarm1_GroupBox.TabIndex = 0;
             this.Alarm1_GroupBox.TabStop = false;
             // 
-            // Alarm1MinuteInput_TextBox
+            // Alarm1_DateTimePicker
             // 
-            this.Alarm1MinuteInput_TextBox.Location = new System.Drawing.Point(128, 65);
-            this.Alarm1MinuteInput_TextBox.Name = "Alarm1MinuteInput_TextBox";
-            this.Alarm1MinuteInput_TextBox.Size = new System.Drawing.Size(100, 20);
-            this.Alarm1MinuteInput_TextBox.TabIndex = 5;
-            // 
-            // Alarm1HourInput_TextBox
-            // 
-            this.Alarm1HourInput_TextBox.Location = new System.Drawing.Point(128, 31);
-            this.Alarm1HourInput_TextBox.Name = "Alarm1HourInput_TextBox";
-            this.Alarm1HourInput_TextBox.Size = new System.Drawing.Size(100, 20);
-            this.Alarm1HourInput_TextBox.TabIndex = 4;
+            this.Alarm1_DateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Alarm1_DateTimePicker.Location = new System.Drawing.Point(26, 46);
+            this.Alarm1_DateTimePicker.MaxDate = new System.DateTime(2017, 10, 24, 0, 0, 0, 0);
+            this.Alarm1_DateTimePicker.Name = "Alarm1_DateTimePicker";
+            this.Alarm1_DateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.Alarm1_DateTimePicker.TabIndex = 4;
+            this.Alarm1_DateTimePicker.Value = new System.DateTime(2017, 10, 24, 0, 0, 0, 0);
+            this.Alarm1_DateTimePicker.ValueChanged += new System.EventHandler(this.Alarm1_DateTimePicker_ValueChanged);
             // 
             // Alarm1Set_Button
             // 
@@ -148,25 +150,15 @@
             this.Alarm1_Clock.TabIndex = 2;
             this.Alarm1_Clock.Text = "00:00";
             // 
-            // SetAlarmMinute1
-            // 
-            this.SetAlarmMinute1.AutoSize = true;
-            this.SetAlarmMinute1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SetAlarmMinute1.Location = new System.Drawing.Point(28, 65);
-            this.SetAlarmMinute1.Name = "SetAlarmMinute1";
-            this.SetAlarmMinute1.Size = new System.Drawing.Size(75, 15);
-            this.SetAlarmMinute1.TabIndex = 1;
-            this.SetAlarmMinute1.Text = "Set minutes:";
-            // 
             // SetAlarmHour1
             // 
             this.SetAlarmHour1.AutoSize = true;
             this.SetAlarmHour1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SetAlarmHour1.Location = new System.Drawing.Point(28, 36);
+            this.SetAlarmHour1.Location = new System.Drawing.Point(72, 16);
             this.SetAlarmHour1.Name = "SetAlarmHour1";
-            this.SetAlarmHour1.Size = new System.Drawing.Size(53, 15);
+            this.SetAlarmHour1.Size = new System.Drawing.Size(90, 15);
             this.SetAlarmHour1.TabIndex = 0;
-            this.SetAlarmHour1.Text = "Set hour";
+            this.SetAlarmHour1.Text = "Set alarm time:";
             // 
             // AlarmTabBox
             // 
@@ -204,11 +196,9 @@
             // 
             // Alarm2_GroupBox
             // 
-            this.Alarm2_GroupBox.Controls.Add(this.Alarm2MinuteInput_TextBox);
-            this.Alarm2_GroupBox.Controls.Add(this.Alarm2HourInput_TextBox);
+            this.Alarm2_GroupBox.Controls.Add(this.Alarm2_DateTimePicker);
             this.Alarm2_GroupBox.Controls.Add(this.Alarm2Set_Button);
             this.Alarm2_GroupBox.Controls.Add(this.Alarm2_Clock);
-            this.Alarm2_GroupBox.Controls.Add(this.SetAlarm2Minute);
             this.Alarm2_GroupBox.Controls.Add(this.SetAlarm2Hour);
             this.Alarm2_GroupBox.Location = new System.Drawing.Point(21, 32);
             this.Alarm2_GroupBox.Name = "Alarm2_GroupBox";
@@ -216,19 +206,15 @@
             this.Alarm2_GroupBox.TabIndex = 1;
             this.Alarm2_GroupBox.TabStop = false;
             // 
-            // Alarm2MinuteInput_TextBox
+            // Alarm2_DateTimePicker
             // 
-            this.Alarm2MinuteInput_TextBox.Location = new System.Drawing.Point(124, 58);
-            this.Alarm2MinuteInput_TextBox.Name = "Alarm2MinuteInput_TextBox";
-            this.Alarm2MinuteInput_TextBox.Size = new System.Drawing.Size(100, 20);
-            this.Alarm2MinuteInput_TextBox.TabIndex = 9;
-            // 
-            // Alarm2HourInput_TextBox
-            // 
-            this.Alarm2HourInput_TextBox.Location = new System.Drawing.Point(124, 37);
-            this.Alarm2HourInput_TextBox.Name = "Alarm2HourInput_TextBox";
-            this.Alarm2HourInput_TextBox.Size = new System.Drawing.Size(100, 20);
-            this.Alarm2HourInput_TextBox.TabIndex = 8;
+            this.Alarm2_DateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Alarm2_DateTimePicker.Location = new System.Drawing.Point(38, 47);
+            this.Alarm2_DateTimePicker.Name = "Alarm2_DateTimePicker";
+            this.Alarm2_DateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.Alarm2_DateTimePicker.TabIndex = 8;
+            this.Alarm2_DateTimePicker.Value = new System.DateTime(2017, 10, 24, 0, 0, 0, 0);
+            this.Alarm2_DateTimePicker.ValueChanged += new System.EventHandler(this.Alarm2_DateTimePicker_ValueChanged);
             // 
             // Alarm2Set_Button
             // 
@@ -249,36 +235,15 @@
             this.Alarm2_Clock.TabIndex = 6;
             this.Alarm2_Clock.Text = "00:00";
             // 
-            // SetAlarm2Minute
-            // 
-            this.SetAlarm2Minute.AutoSize = true;
-            this.SetAlarm2Minute.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SetAlarm2Minute.Location = new System.Drawing.Point(31, 57);
-            this.SetAlarm2Minute.Name = "SetAlarm2Minute";
-            this.SetAlarm2Minute.Size = new System.Drawing.Size(90, 18);
-            this.SetAlarm2Minute.TabIndex = 5;
-            this.SetAlarm2Minute.Text = "Set minutes:";
-            // 
             // SetAlarm2Hour
             // 
             this.SetAlarm2Hour.AutoSize = true;
             this.SetAlarm2Hour.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SetAlarm2Hour.Location = new System.Drawing.Point(31, 39);
+            this.SetAlarm2Hour.Location = new System.Drawing.Point(91, 16);
             this.SetAlarm2Hour.Name = "SetAlarm2Hour";
-            this.SetAlarm2Hour.Size = new System.Drawing.Size(76, 18);
+            this.SetAlarm2Hour.Size = new System.Drawing.Size(107, 18);
             this.SetAlarm2Hour.TabIndex = 4;
-            this.SetAlarm2Hour.Text = "Set hours:";
-            // 
-            // Clock_DateTimePicker
-            // 
-            this.Clock_DateTimePicker.AllowDrop = true;
-            this.Clock_DateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.Clock_DateTimePicker.Location = new System.Drawing.Point(99, 30);
-            this.Clock_DateTimePicker.Name = "Clock_DateTimePicker";
-            this.Clock_DateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.Clock_DateTimePicker.TabIndex = 6;
-            this.Clock_DateTimePicker.Value = new System.DateTime(2017, 10, 24, 0, 0, 0, 0);
-            this.Clock_DateTimePicker.ValueChanged += new System.EventHandler(this.Clock_DateTimePicker_ValueChanged);
+            this.SetAlarm2Hour.Text = "Set alarm time:";
             // 
             // Form1
             // 
@@ -311,7 +276,6 @@
         private System.Windows.Forms.GroupBox Alarm1_GroupBox;
         private System.Windows.Forms.Button Alarm1Set_Button;
         private System.Windows.Forms.Label Alarm1_Clock;
-        private System.Windows.Forms.Label SetAlarmMinute1;
         private System.Windows.Forms.Label SetAlarmHour1;
         private System.Windows.Forms.TabControl AlarmTabBox;
         private System.Windows.Forms.TabPage AlarmTabPage1;
@@ -319,13 +283,10 @@
         private System.Windows.Forms.GroupBox Alarm2_GroupBox;
         private System.Windows.Forms.Button Alarm2Set_Button;
         private System.Windows.Forms.Label Alarm2_Clock;
-        private System.Windows.Forms.Label SetAlarm2Minute;
         private System.Windows.Forms.Label SetAlarm2Hour;
-        private System.Windows.Forms.TextBox Alarm1MinuteInput_TextBox;
-        private System.Windows.Forms.TextBox Alarm1HourInput_TextBox;
-        private System.Windows.Forms.TextBox Alarm2MinuteInput_TextBox;
-        private System.Windows.Forms.TextBox Alarm2HourInput_TextBox;
         private System.Windows.Forms.DateTimePicker Clock_DateTimePicker;
+        private System.Windows.Forms.DateTimePicker Alarm1_DateTimePicker;
+        private System.Windows.Forms.DateTimePicker Alarm2_DateTimePicker;
     }
 }
 

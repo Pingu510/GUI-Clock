@@ -22,7 +22,7 @@ namespace GUI_Clock
             //ThreadAlarmTime.Start();
         }
 
-
+        
         
         /// <summary>
         /// Creates a correct format string for windows forms clock text.
@@ -46,7 +46,7 @@ namespace GUI_Clock
             currenttime = strhours + ":" + strminutes;
             return currenttime;
         }
-
+        
         /// <summary>
         /// Converts from string to clocktime int
         /// </summary>

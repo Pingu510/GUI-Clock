@@ -17,7 +17,9 @@ namespace GUI_Clock
     {
         
         ProgramLogic programLogic = new ProgramLogic();
-        DateTime myPickedDateTime;
+        DateTime myPickedClockTime;
+        DateTime myPickedAlarm1Time;
+        DateTime myPickedAlarm2Time;
 
 
         public Form1()
@@ -26,10 +28,23 @@ namespace GUI_Clock
             Thread ThreadTime = new Thread(new ThreadStart(Update_Clock_Form));
             programLogic.clock.Minute.OnTick += Minute_OnTick;
             
+            SetDateTimeFormats();
 
-            Clock_DateTimePicker.Format = DateTimePickerFormat.Custom;
+        }
+
+        private void SetDateTimeFormats()
+        {
+            //Clock_DateTimePicker.Format = DateTimePickerFormat.Custom;
             Clock_DateTimePicker.ShowUpDown = true;
             Clock_DateTimePicker.CustomFormat = "HH:mm";
+
+            //Alarm1_DateTimePicker.Format = DateTimePickerFormat.Custom;
+            Alarm1_DateTimePicker.ShowUpDown = true;
+            Alarm1_DateTimePicker.CustomFormat = "HH:mm";
+
+            //Alarm2_DateTimePicker.Format = DateTimePickerFormat.Custom;
+            Alarm2_DateTimePicker.ShowUpDown = true;
+            Alarm2_DateTimePicker.CustomFormat = "HH:mm";
         }
 
         private void Minute_OnTick()
@@ -64,7 +79,7 @@ namespace GUI_Clock
             {
                 ClockStart_Button.Text = "Stop";
 
-                programLogic.clock.SetTime(myPickedDateTime.Hour, myPickedDateTime.Minute);
+                programLogic.clock.SetTime(myPickedClockTime.Hour, myPickedClockTime.Minute);
                 programLogic.clock.StartClock();
 
                 Clock_DateTimePicker.Enabled = false;
@@ -89,8 +104,23 @@ namespace GUI_Clock
 
         private void Clock_DateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            myPickedDateTime = Clock_DateTimePicker.Value;
-            ClockTime_Form.Text = myPickedDateTime.Hour.ToString() + ":" + myPickedDateTime.Minute.ToString();
+            myPickedClockTime = Clock_DateTimePicker.Value;
+            programLogic.clock.SetTime(myPickedClockTime.Hour, myPickedClockTime.Minute);
+            ClockTime_Form.Text = programLogic.CreateTimeString();
+        }
+
+        private void Alarm1_DateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            myPickedAlarm1Time = Alarm1_DateTimePicker.Value;
+            programLogic._alarm1.SetAlarm(myPickedAlarm1Time.Hour, myPickedAlarm1Time.Minute);
+            Alarm1_Clock.Text = myPickedAlarm1Time.Hour.ToString() + ":" + myPickedAlarm1Time.Minute.ToString();
+        }
+
+        private void Alarm2_DateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            myPickedAlarm2Time = Alarm2_DateTimePicker.Value;
+            programLogic._alarm2.SetAlarm(myPickedAlarm2Time.Hour, myPickedAlarm2Time.Minute);
+            Alarm1_Clock.Text = myPickedAlarm2Time.Hour.ToString() + ":" + myPickedAlarm2Time.Minute.ToString();
         }
     }
 }
