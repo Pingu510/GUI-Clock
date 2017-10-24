@@ -68,6 +68,9 @@ namespace GUI_Clock
             else//Stänger klocka
             {
                 Start_Button.Text = "Start";
+                programLogic.clock.StopClock();
+                textBox1.Enabled = true;
+                textBox2.Enabled = true;
             }
         }
 
@@ -110,9 +113,9 @@ namespace GUI_Clock
 
         private void button1_Click(object sender, EventArgs e)
         {
-            programLogic.clock.StopClock();
-            textBox1.Enabled = true;
-            textBox2.Enabled = true;
+        //    programLogic.clock.StopClock();
+        //    textBox1.Enabled = true;
+        //    textBox2.Enabled = true;
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -126,6 +129,24 @@ namespace GUI_Clock
         }
 
         private void clockbox_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // Form1
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Name = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load_1);
+            this.ResumeLayout(false);
+
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
         {
 
         }
