@@ -110,7 +110,7 @@ namespace GUI_Clock
         private void SoundTheAlarm()
         {
             DialogResult result = DialogResult.None;
-            SoundPlayer soundPlayer = new SoundPlayer(Properties.Resources.ChurchBell);
+            SoundPlayer soundPlayer = new SoundPlayer(Properties.Resources.GrandfatherClock);
 
             while (result != DialogResult.OK)
             {

@@ -66,9 +66,9 @@
             // ClockStart_Button
             // 
             this.ClockStart_Button.Font = new System.Drawing.Font("Constantia", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClockStart_Button.Location = new System.Drawing.Point(175, 28);
+            this.ClockStart_Button.Location = new System.Drawing.Point(175, 27);
             this.ClockStart_Button.Name = "ClockStart_Button";
-            this.ClockStart_Button.Size = new System.Drawing.Size(75, 23);
+            this.ClockStart_Button.Size = new System.Drawing.Size(75, 26);
             this.ClockStart_Button.TabIndex = 1;
             this.ClockStart_Button.Text = "Start";
             this.ClockStart_Button.UseVisualStyleBackColor = true;
@@ -163,7 +163,7 @@
             // 
             this.SetAlarmHour1.AutoSize = true;
             this.SetAlarmHour1.Font = new System.Drawing.Font("Constantia", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SetAlarmHour1.Location = new System.Drawing.Point(87, 16);
+            this.SetAlarmHour1.Location = new System.Drawing.Point(78, 16);
             this.SetAlarmHour1.Name = "SetAlarmHour1";
             this.SetAlarmHour1.Size = new System.Drawing.Size(104, 22);
             this.SetAlarmHour1.TabIndex = 0;
@@ -221,7 +221,7 @@
             // 
             this.SetAlarm2Hour.AutoSize = true;
             this.SetAlarm2Hour.Font = new System.Drawing.Font("Constantia", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SetAlarm2Hour.Location = new System.Drawing.Point(87, 16);
+            this.SetAlarm2Hour.Location = new System.Drawing.Point(78, 16);
             this.SetAlarm2Hour.Name = "SetAlarm2Hour";
             this.SetAlarm2Hour.Size = new System.Drawing.Size(107, 22);
             this.SetAlarm2Hour.TabIndex = 4;
@@ -238,7 +238,6 @@
             this.EasterPacBox.Size = new System.Drawing.Size(30, 26);
             this.EasterPacBox.TabIndex = 7;
             this.EasterPacBox.TabStop = false;
-            this.EasterPacBox.Visible = false;
             // 
             // Form1
             // 
