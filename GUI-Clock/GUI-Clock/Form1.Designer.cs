@@ -44,11 +44,11 @@
             this.Alarm2Set_Button = new System.Windows.Forms.Button();
             this.Alarm2_Clock = new System.Windows.Forms.Label();
             this.SetAlarm2Hour = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.EasterPacBox = new System.Windows.Forms.PictureBox();
             this.Clock_GroupBox.SuspendLayout();
             this.Alarm1_GroupBox.SuspendLayout();
             this.Alarm2_GroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EasterPacBox)).BeginInit();
             this.SuspendLayout();
             // 
             // ClockTime_Form
@@ -227,16 +227,18 @@
             this.SetAlarm2Hour.TabIndex = 4;
             this.SetAlarm2Hour.Text = "Set Alarm 2:";
             // 
-            // pictureBox1
+            // EasterPacBox
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Image = global::GUI_Clock.Properties.Resources.Pac_Man;
-            this.pictureBox1.Location = new System.Drawing.Point(644, 373);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 26);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
+            this.EasterPacBox.BackColor = System.Drawing.Color.Transparent;
+            this.EasterPacBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.EasterPacBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EasterPacBox.Image = global::GUI_Clock.Properties.Resources.Pac_Man;
+            this.EasterPacBox.Location = new System.Drawing.Point(644, 373);
+            this.EasterPacBox.Name = "EasterPacBox";
+            this.EasterPacBox.Size = new System.Drawing.Size(30, 26);
+            this.EasterPacBox.TabIndex = 7;
+            this.EasterPacBox.TabStop = false;
+            this.EasterPacBox.Visible = false;
             // 
             // Form1
             // 
@@ -245,8 +247,8 @@
             this.BackColor = System.Drawing.Color.DarkGray;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(704, 512);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(704, 511);
+            this.Controls.Add(this.EasterPacBox);
             this.Controls.Add(this.Alarm1_GroupBox);
             this.Controls.Add(this.Alarm2_GroupBox);
             this.Controls.Add(this.ClockTime_Form);
@@ -264,7 +266,7 @@
             this.Alarm1_GroupBox.PerformLayout();
             this.Alarm2_GroupBox.ResumeLayout(false);
             this.Alarm2_GroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EasterPacBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,7 +289,7 @@
         private System.Windows.Forms.DateTimePicker Clock_DateTimePicker;
         private System.Windows.Forms.DateTimePicker Alarm1_DateTimePicker;
         private System.Windows.Forms.DateTimePicker Alarm2_DateTimePicker;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox EasterPacBox;
     }
 }
 

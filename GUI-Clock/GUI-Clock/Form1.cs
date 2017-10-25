@@ -56,6 +56,69 @@ namespace GUI_Clock
             ClockTime_Form.Text = programLogic.CreateTimeString();
             IsItTimeForAlarm();           
         }
+        
+        /// <summary>
+        /// Checks if its time to sound the alarm and then proceds to call SoundTheAlarm(),
+        ///  and then manages what happens when the alarm is shut off
+        /// </summary>
+        private void IsItTimeForAlarm()
+        {
+            int _currenthour = programLogic.clock.GetHours();
+            int _currentminute = programLogic.clock.GetMinutes();
+
+            if (programLogic.Alarm1.CheckAlarm(_currenthour, _currentminute) && programLogic.Alarm2.CheckAlarm(_currenthour, _currentminute))
+            {
+                SoundTheAlarm();
+                WhenAlarmIsDone("Alarm1");
+                WhenAlarmIsDone("Alarm2");
+            }
+            else if (programLogic.Alarm1.CheckAlarm(_currenthour, _currentminute))
+            {
+                SoundTheAlarm();
+                WhenAlarmIsDone("Alarm1");
+            }
+            else if (programLogic.Alarm2.CheckAlarm(_currenthour, _currentminute))
+            {
+                SoundTheAlarm();
+                WhenAlarmIsDone("Alarm2");
+            }
+        }
+
+        /// <summary>
+        /// Changes ActiveAlarm, buttons, datetime picker to right values  
+        /// </summary>
+        /// <param name="currentAlarm"></param>
+        private void WhenAlarmIsDone (string currentAlarm)
+        {
+            if (currentAlarm == "Alarm1")
+            {
+                programLogic.Alarm1.SetToActive(false); //sets alarm to inactive
+                Alarm1Set_Button.Text = "Set";
+                Alarm1_DateTimePicker.Enabled = true;
+            }
+            else if (currentAlarm == "Alarm2")
+            {
+                programLogic.Alarm2.SetToActive(false); //sets alarm to inactive
+                Alarm2Set_Button.Text = "Set";
+                Alarm2_DateTimePicker.Enabled = true;
+            }
+        }
+
+        /// <summary>
+        /// This is where the alarm goes off
+        /// </summary>
+        private void SoundTheAlarm()
+        {
+            DialogResult result = DialogResult.None;
+            SoundPlayer soundPlayer = new SoundPlayer(Properties.Resources.ChurchBell);
+
+            while (result != DialogResult.OK)
+            {
+                soundPlayer.PlayLooping();
+                result = MessageBox.Show("Tick Tock Goes The Clock...", "Alarming news!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            soundPlayer.Stop();
+        }
 
         /// <summary>
         /// Starts and stops the clock
@@ -78,45 +141,6 @@ namespace GUI_Clock
 
                 Clock_DateTimePicker.Enabled = true;
             }
-        }
-
-        /// <summary>
-        /// Checks if its time to sound the alarm and then proceds to call SoundTheAlarm(),
-        ///  and then manages what happens when the alarm is shut off
-        /// </summary>
-        private void IsItTimeForAlarm()
-        {
-            //FIX both alarms simultaneously
-            if (programLogic.Alarm1.CheckAlarm(programLogic.clock.GetHours(), programLogic.clock.GetMinutes()))
-            {
-                SoundTheAlarm();
-                programLogic.Alarm1.SetToActive(false); //sets alarm to inactive
-                Alarm1Set_Button.Text = "Set";
-                Alarm1_DateTimePicker.Enabled = true;
-            }
-            else if (programLogic.Alarm2.CheckAlarm(programLogic.clock.GetHours(), programLogic.clock.GetMinutes()))
-            {
-                SoundTheAlarm();
-                programLogic.Alarm2.SetToActive(false); //sets alarm to inactive
-                Alarm2Set_Button.Text = "Set";
-                Alarm2_DateTimePicker.Enabled = true;
-            }
-        }
-
-        /// <summary>
-        /// This is where the alarm goes off
-        /// </summary>
-        private void SoundTheAlarm()
-        {
-            DialogResult result = DialogResult.None;
-            SoundPlayer soundPlayer = new SoundPlayer(Properties.Resources.ChurchBell);
-
-            while (result != DialogResult.OK)
-            {
-                soundPlayer.PlayLooping();
-                result = MessageBox.Show("Tick Tock Goes The Clock...", "Alarming news!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            soundPlayer.Stop();
         }
 
         /// <summary>

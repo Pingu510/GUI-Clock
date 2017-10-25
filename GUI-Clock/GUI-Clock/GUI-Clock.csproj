@@ -95,5 +95,8 @@
   <ItemGroup>
     <None Include="Resources\Pac-Man.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GrandfatherClock.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
