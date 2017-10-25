@@ -34,13 +34,8 @@ namespace GUI_Clock
 
         private void SetDateTimeFormats()
         {
-            Clock_DateTimePicker.ShowUpDown = true;
             Clock_DateTimePicker.CustomFormat = "HH:mm";
-            
-            Alarm1_DateTimePicker.ShowUpDown = true;
-            Alarm1_DateTimePicker.CustomFormat = "HH:mm";
-            
-            Alarm2_DateTimePicker.ShowUpDown = true;
+            Alarm1_DateTimePicker.CustomFormat = "HH:mm";            
             Alarm2_DateTimePicker.CustomFormat = "HH:mm";
         }
 
@@ -71,7 +66,6 @@ namespace GUI_Clock
 
         private void Start_Button_Click(object sender, EventArgs e)
         {
-            
             if (ClockStart_Button.Text == "Start") //Startar klocka
             {
                 ClockStart_Button.Text = "Stop";
@@ -107,7 +101,6 @@ namespace GUI_Clock
                 programLogic.Alarm2.SetToActive(false); //sets alarm to inactive
                 Alarm2Set_Button.Text = "Set";
             }
-
         }
 
         /// <summary>
@@ -115,30 +108,20 @@ namespace GUI_Clock
         /// </summary>
         private void SoundTheAlarm()
         {
+            //string filepath = System.Reflection.Assembly.LoadFile("bells004.wav");//GetExecutingAssembly().GetManifestResourceNames();
+
             DialogResult result = DialogResult.None;
+            SoundPlayer soundPlayer = new SoundPlayer("bells004.wav");
+
             while (result != DialogResult.OK)
             {
+                soundPlayer.PlayLooping();
                 //AlarmTabPage2.BackColor = Color.DeepPink;
                 result = MessageBox.Show("Tick Tock Goes The Clock...", "Alarming news!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
+            soundPlayer.Stop();
             //AlarmTabPage2.BackColor = Color.White;
         }
-
-        // Victors alarm
-        //BeginInvoke((MethodInvoker)delegate () {
-        //ClockTime_Form.Text = $"{programLogic.clock.GetHours().ToString("00")}:{programLogic.clock.GetMinutes().ToString("00")}";
-        //              var isAlert =  programLogic._alarm1.CheckAlarm(programLogic.clock.GetHours(), programLogic.clock.GetMinutes());
-        //                if (isAlert)
-        //                {
-        //                    SystemSounds.Asterisk.Play();
-        //                    //noise
-        //                }
-        //                else
-        //                {
-        ////remove the noise
-        //                }
-
-        //});
 
         private void Clock_DateTimePicker_ValueChanged(object sender, EventArgs e)
         {
@@ -202,6 +185,5 @@ namespace GUI_Clock
                 Alarm2_DateTimePicker.Enabled = true;
             }
         }
-        
     }
 }
