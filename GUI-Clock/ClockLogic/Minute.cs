@@ -12,21 +12,21 @@ namespace ClockLogic //TEstar
     {
         public event OnTick OnTick;
 
-        private int _MinuteValue;
+        private int _minutevalue;
 
         /// <summary>
-        /// Current Minute, restricted to correct timeformat.
+        /// Controls _minutevalue, restricted to correct timeformat.
         /// </summary>
         public int MinuteValue
         {
-            get { return _MinuteValue; }
+            get { return _minutevalue; }
             set
             {
                 if (value < -1 || value > 60)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
-                _MinuteValue = value;
+                _minutevalue = value;
             }
         }
 

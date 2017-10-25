@@ -87,7 +87,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ajax-loader.gif" />
+    <None Include="Resources\Clock-Wallpaper.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChurchBell.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pac-Man.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

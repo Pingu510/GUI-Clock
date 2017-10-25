@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using ClockLogic;
-// test
+
 namespace GUI_Clock
 {
     public class ProgramLogic
@@ -13,16 +13,6 @@ namespace GUI_Clock
         public Clock clock = new Clock();
         public Alarm Alarm1 = new Alarm();
         public Alarm Alarm2 = new Alarm();
-        
-
-        public ProgramLogic()
-        {
-            //test
-            //Thread ThreadAlarmTime = new Thread(new ThreadStart(TimeForSetOffAlarm));
-            //ThreadAlarmTime.Start();
-        }
-
-        
         
         /// <summary>
         /// Creates a correct format string for windows forms clock text.
@@ -46,30 +36,5 @@ namespace GUI_Clock
             currenttime = strhours + ":" + strminutes;
             return currenttime;
         }
-        
-        /// <summary>
-        /// Converts from string to clocktime int
-        /// </summary>
-        public int CreateTimeIntiger(string time)
-        {
-            try
-            {
-                return int.Parse(time);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        ///// <summary>
-        ///// 
-        ///// </summary>
-        //public bool IsItTimeForAlarm()
-        //{
-        //    if (_alarm1.CheckAlarm(clock.GetHours(), clock.GetMinutes()) || _alarm2.CheckAlarm(clock.GetHours(), clock.GetMinutes()))
-        //        return true;
-        //    return false;            
-        //}
     }
 }

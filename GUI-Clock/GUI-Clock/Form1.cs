@@ -15,7 +15,6 @@ namespace GUI_Clock
 {
     public partial class Form1 : Form
     {
-        
         ProgramLogic programLogic = new ProgramLogic();
         DateTime myPickedClockTime;
         DateTime myPickedAlarm1Time;
@@ -25,19 +24,21 @@ namespace GUI_Clock
         public Form1()
         {
             InitializeComponent();
-            //Thread ThreadTime = new Thread(new ThreadStart(Minute_OnTick);//Update_Clock_Form));
             programLogic.clock.Minute.OnTick += Minute_OnTick;
             
             SetDateTimeFormats();
-
         }
 
+        /// <summary>
+        /// Sets a custom format for the datetime boxes, 24h clock.
+        /// </summary>
         private void SetDateTimeFormats()
         {
             Clock_DateTimePicker.CustomFormat = "HH:mm";
             Alarm1_DateTimePicker.CustomFormat = "HH:mm";            
             Alarm2_DateTimePicker.CustomFormat = "HH:mm";
         }
+
 
         private void Minute_OnTick()
         {
@@ -47,26 +48,21 @@ namespace GUI_Clock
             }
         }
 
+        /// <summary>
+        /// Updates the clocktimer GUI and calls an alarmcheck method.
+        /// </summary>
         public void Update_Clock_Form()
         {
             ClockTime_Form.Text = programLogic.CreateTimeString();
-
-            // Om båda larmen ska gå samtidigt, använd programLogic.IsItTimeForAlarm() ist
-
-            if (programLogic.Alarm1.CheckAlarm(programLogic.clock.GetHours(), programLogic.clock.GetMinutes()))
-            {
-                ManageTheAlarm("alarm1");
-            }
-            else if(programLogic.Alarm2.CheckAlarm(programLogic.clock.GetHours(), programLogic.clock.GetMinutes()))
-            {
-                ManageTheAlarm("alarm2");
-            }
-            
+            IsItTimeForAlarm();           
         }
 
+        /// <summary>
+        /// Starts and stops the clock
+        /// </summary>
         private void Start_Button_Click(object sender, EventArgs e)
         {
-            if (ClockStart_Button.Text == "Start") //Startar klocka
+            if (ClockStart_Button.Text == "Start") //Starts clock
             {
                 ClockStart_Button.Text = "Stop";
 
@@ -85,20 +81,22 @@ namespace GUI_Clock
         }
 
         /// <summary>
-        /// This is where the alarm goes off
+        /// Checks if its time to sound the alarm and then proceds to call SoundTheAlarm(),
+        ///  and then manages what happens when the alarm is shut off
         /// </summary>
-        private void ManageTheAlarm(string whatalarm)
+        private void IsItTimeForAlarm()
         {
-            SoundTheAlarm();
-
-            if (whatalarm == "alarm1")
+            //FIX both alarms simultaneously
+            if (programLogic.Alarm1.CheckAlarm(programLogic.clock.GetHours(), programLogic.clock.GetMinutes()))
             {
+                SoundTheAlarm();
                 programLogic.Alarm1.SetToActive(false); //sets alarm to inactive
                 Alarm1Set_Button.Text = "Set";
                 Alarm1_DateTimePicker.Enabled = true;
             }
-            else if (whatalarm == "alarm2")
+            else if (programLogic.Alarm2.CheckAlarm(programLogic.clock.GetHours(), programLogic.clock.GetMinutes()))
             {
+                SoundTheAlarm();
                 programLogic.Alarm2.SetToActive(false); //sets alarm to inactive
                 Alarm2Set_Button.Text = "Set";
                 Alarm2_DateTimePicker.Enabled = true;
@@ -106,26 +104,24 @@ namespace GUI_Clock
         }
 
         /// <summary>
-        /// This is what happens when alarm goes off
+        /// This is where the alarm goes off
         /// </summary>
         private void SoundTheAlarm()
         {
-            //string filepath = System.Reflection.Assembly.LoadFile("bells004.wav");//GetExecutingAssembly().GetManifestResourceNames();
-
             DialogResult result = DialogResult.None;
-            //string filepath = "";
-            SoundPlayer soundPlayer = new SoundPlayer("Resources\\bells004.wav");
+            SoundPlayer soundPlayer = new SoundPlayer(Properties.Resources.ChurchBell);
 
             while (result != DialogResult.OK)
             {
                 soundPlayer.PlayLooping();
-                //AlarmTabPage2.BackColor = Color.DeepPink;
                 result = MessageBox.Show("Tick Tock Goes The Clock...", "Alarming news!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             soundPlayer.Stop();
-            //AlarmTabPage2.BackColor = Color.White;
         }
 
+        /// <summary>
+        /// When the text in clock datetime is changed, does this.
+        /// </summary>
         private void Clock_DateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             myPickedClockTime = Clock_DateTimePicker.Value;
@@ -134,7 +130,7 @@ namespace GUI_Clock
         }
 
         /// <summary>
-        /// Alarm 1 pick time box
+        /// When the text in alarm 1 datetime is changed, does this.
         /// </summary>
         private void Alarm1_DateTimePicker_ValueChanged(object sender, EventArgs e)
         {
@@ -143,7 +139,7 @@ namespace GUI_Clock
         }
 
         /// <summary>
-        /// Alarm 2 pick time box
+        /// When the text in alarm 2 datetime is changed, does this.
         /// </summary>
         private void Alarm2_DateTimePicker_ValueChanged(object sender, EventArgs e)
         {
@@ -152,7 +148,7 @@ namespace GUI_Clock
         }
 
         /// <summary>
-        /// Alarm 1 sets the alarm
+        /// Sets alarm 1 to active or inactive
         /// </summary>
         private void Alarm1Set_Button_Click(object sender, EventArgs e)
         {
@@ -171,7 +167,7 @@ namespace GUI_Clock
         }
 
         /// <summary>
-        /// Alarm 2 sets the alarm
+        /// Sets alarm 2 to active or inactive
         /// </summary>
         private void Alarm2Set_Button_Click(object sender, EventArgs e)
         {

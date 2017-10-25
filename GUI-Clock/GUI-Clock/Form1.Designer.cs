@@ -45,7 +45,6 @@
             this.Alarm2_Clock = new System.Windows.Forms.Label();
             this.SetAlarm2Hour = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.Clock_GroupBox.SuspendLayout();
             this.Alarm1_GroupBox.SuspendLayout();
             this.Alarm2_GroupBox.SuspendLayout();
@@ -232,7 +231,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Image = global::GUI_Clock.Properties.Resources.ajax_loader;
+            this.pictureBox1.Image = global::GUI_Clock.Properties.Resources.Pac_Man;
             this.pictureBox1.Location = new System.Drawing.Point(644, 373);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(30, 26);
@@ -289,7 +288,6 @@
         private System.Windows.Forms.DateTimePicker Alarm1_DateTimePicker;
         private System.Windows.Forms.DateTimePicker Alarm2_DateTimePicker;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

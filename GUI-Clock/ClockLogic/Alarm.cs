@@ -11,8 +11,9 @@ namespace ClockLogic
         private bool _isactive { get; set; }
         private int _alarmhour;
         private int _alarmminute;
+
         /// <summary>
-        /// 
+        /// Controls _alarmhour, restricted to correct timeformat.
         /// </summary>
         private int Alarmhour
         {
@@ -28,7 +29,7 @@ namespace ClockLogic
         }
 
         /// <summary>
-        /// 
+        /// Controls _alarmminute, restricted to correct timeformat.
         /// </summary>
         public int Alarmminute
         {
@@ -44,7 +45,7 @@ namespace ClockLogic
         }
 
         /// <summary>
-        /// Sets the alarm to active or inactive
+        /// Sets the alarm to active or inactive.
         /// </summary>
         public void SetToActive(bool value)
         {

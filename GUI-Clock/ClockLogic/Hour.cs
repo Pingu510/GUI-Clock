@@ -10,17 +10,17 @@ namespace ClockLogic
   
     public class Hour : IHour
     {
-        private int _HourValue;
+        private int _hourvalue;
 
         /// <summary>
-        /// Current Hour, restricted to correct timeformat
+        /// Controls _hourvalue, restricted to correct timeformat.
         /// </summary>        
         public int HourValue
         {
-            get { return _HourValue; }
+            get { return _hourvalue; }
             set
             {
-                if (value < 0 || value >24)
+                if (value < 0 || value > 24)
                 {
                     try
                     {
@@ -33,7 +33,7 @@ namespace ClockLogic
                     }
                 }
                
-                _HourValue = value;
+                _hourvalue = value;
             }
         }
 

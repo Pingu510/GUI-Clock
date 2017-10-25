@@ -61,11 +61,30 @@ namespace GUI_Clock.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream ChurchBell {
+            get {
+                return ResourceManager.GetStream("ChurchBell", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ajax_loader {
+        internal static System.Drawing.Bitmap Clock_Wallpaper {
             get {
-                object obj = ResourceManager.GetObject("ajax-loader", resourceCulture);
+                object obj = ResourceManager.GetObject("Clock_Wallpaper", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Pac_Man {
+            get {
+                object obj = ResourceManager.GetObject("Pac_Man", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
