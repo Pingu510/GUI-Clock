@@ -57,7 +57,7 @@
             this.ClockTime_Form.AutoSize = true;
             this.ClockTime_Form.BackColor = System.Drawing.Color.Transparent;
             this.ClockTime_Form.Font = new System.Drawing.Font("Microsoft Sans Serif", 66F);
-            this.ClockTime_Form.ForeColor = System.Drawing.Color.Snow;
+            this.ClockTime_Form.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ClockTime_Form.Location = new System.Drawing.Point(349, 179);
             this.ClockTime_Form.Name = "ClockTime_Form";
             this.ClockTime_Form.Size = new System.Drawing.Size(263, 101);
@@ -118,7 +118,7 @@
             this.Alarm1_GroupBox.Controls.Add(this.Alarm1Set_Button);
             this.Alarm1_GroupBox.Controls.Add(this.Alarm1_Clock);
             this.Alarm1_GroupBox.Controls.Add(this.SetAlarmHour1);
-            this.Alarm1_GroupBox.Location = new System.Drawing.Point(25, 22);
+            this.Alarm1_GroupBox.Location = new System.Drawing.Point(25, 34);
             this.Alarm1_GroupBox.Name = "Alarm1_GroupBox";
             this.Alarm1_GroupBox.Size = new System.Drawing.Size(280, 200);
             this.Alarm1_GroupBox.TabIndex = 0;
@@ -153,7 +153,7 @@
             // 
             this.Alarm1_Clock.AutoSize = true;
             this.Alarm1_Clock.Font = new System.Drawing.Font("Microsoft Sans Serif", 38F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Alarm1_Clock.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Alarm1_Clock.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Alarm1_Clock.Location = new System.Drawing.Point(54, 70);
             this.Alarm1_Clock.Name = "Alarm1_Clock";
             this.Alarm1_Clock.Size = new System.Drawing.Size(151, 59);
@@ -246,14 +246,18 @@
             this.BackColor = System.Drawing.Color.DarkGray;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(686, 518);
+            this.ClientSize = new System.Drawing.Size(704, 512);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Alarm1_GroupBox);
             this.Controls.Add(this.Alarm2_GroupBox);
             this.Controls.Add(this.ClockTime_Form);
             this.Controls.Add(this.Clock_GroupBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(720, 550);
             this.Name = "Form1";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Klocka";
             this.Clock_GroupBox.ResumeLayout(false);
             this.Clock_GroupBox.PerformLayout();

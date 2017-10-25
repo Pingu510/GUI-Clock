@@ -95,11 +95,13 @@ namespace GUI_Clock
             {
                 programLogic.Alarm1.SetToActive(false); //sets alarm to inactive
                 Alarm1Set_Button.Text = "Set";
+                Alarm1_DateTimePicker.Enabled = true;
             }
             else if (whatalarm == "alarm2")
             {
                 programLogic.Alarm2.SetToActive(false); //sets alarm to inactive
                 Alarm2Set_Button.Text = "Set";
+                Alarm2_DateTimePicker.Enabled = true;
             }
         }
 
@@ -111,13 +113,14 @@ namespace GUI_Clock
             //string filepath = System.Reflection.Assembly.LoadFile("bells004.wav");//GetExecutingAssembly().GetManifestResourceNames();
 
             DialogResult result = DialogResult.None;
-            SoundPlayer soundPlayer = new SoundPlayer("bells004.wav");
+            //string filepath = "";
+            SoundPlayer soundPlayer = new SoundPlayer("Resources\\bells004.wav");
 
             while (result != DialogResult.OK)
             {
                 soundPlayer.PlayLooping();
                 //AlarmTabPage2.BackColor = Color.DeepPink;
-                result = MessageBox.Show("Tick Tock Goes The Clock...", "Alarming news!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                result = MessageBox.Show("Tick Tock Goes The Clock...", "Alarming news!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             soundPlayer.Stop();
             //AlarmTabPage2.BackColor = Color.White;
