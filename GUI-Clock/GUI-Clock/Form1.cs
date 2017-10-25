@@ -113,16 +113,15 @@ namespace GUI_Clock
         /// <summary>
         /// This is what happens when alarm goes off
         /// </summary>
-        private async void SoundTheAlarm()
+        private void SoundTheAlarm()
         {
             DialogResult result = DialogResult.None;
             while (result != DialogResult.OK)
             {
-                await Task.Delay(500);
-                AlarmTabPage2.BackColor = Color.DeepPink;
+                //AlarmTabPage2.BackColor = Color.DeepPink;
                 result = MessageBox.Show("Tick Tock Goes The Clock...", "Alarming news!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
-            AlarmTabPage2.BackColor = Color.White;
+            //AlarmTabPage2.BackColor = Color.White;
         }
 
         // Victors alarm
@@ -154,7 +153,7 @@ namespace GUI_Clock
         private void Alarm1_DateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             myPickedAlarm1Time = Alarm1_DateTimePicker.Value;            
-            Alarm1_Clock.Text = myPickedAlarm1Time.Hour.ToString() + ":" + myPickedAlarm1Time.Minute.ToString();
+            Alarm1_Clock.Text = myPickedAlarm1Time.Hour.ToString("00") + ":" + myPickedAlarm1Time.Minute.ToString("00");
         }
 
         /// <summary>
@@ -163,7 +162,7 @@ namespace GUI_Clock
         private void Alarm2_DateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             myPickedAlarm2Time = Alarm2_DateTimePicker.Value;
-            Alarm2_Clock.Text = myPickedAlarm2Time.Hour.ToString() + ":" + myPickedAlarm2Time.Minute.ToString();
+            Alarm2_Clock.Text = myPickedAlarm2Time.Hour.ToString("00") + ":" + myPickedAlarm2Time.Minute.ToString("00");
         }
 
         /// <summary>
@@ -190,7 +189,7 @@ namespace GUI_Clock
         /// </summary>
         private void Alarm2Set_Button_Click(object sender, EventArgs e)
         {
-            if(Alarm1Set_Button.Text == "Set")
+            if(Alarm2Set_Button.Text == "Set")
             {
                 Alarm2Set_Button.Text = "Disable";
                 Alarm2_DateTimePicker.Enabled = false;
